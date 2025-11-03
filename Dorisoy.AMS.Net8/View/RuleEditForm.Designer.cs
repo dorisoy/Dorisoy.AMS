@@ -28,127 +28,138 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.numNumberLength = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPrefix = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtKeywords = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numNumberLength)).BeginInit();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            label4 = new Label();
+            btnClose = new Button();
+            btnSave = new Button();
+            numNumberLength = new NumericUpDown();
+            label3 = new Label();
+            txtPrefix = new TextBox();
+            label2 = new Label();
+            txtKeywords = new TextBox();
+            label1 = new Label();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numNumberLength).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Controls.Add(this.numNumberLength);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtPrefix);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtKeywords);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(13, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(442, 201);
-            this.panel1.TabIndex = 0;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(168, 152);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 7;
-            this.btnClose.Text = "取消";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(66, 152);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 6;
-            this.btnSave.Text = "保存";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // numNumberLength
-            // 
-            this.numNumberLength.Location = new System.Drawing.Point(66, 102);
-            this.numNumberLength.Name = "numNumberLength";
-            this.numNumberLength.Size = new System.Drawing.Size(177, 21);
-            this.numNumberLength.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "位数";
-            // 
-            // txtPrefix
-            // 
-            this.txtPrefix.Location = new System.Drawing.Point(66, 59);
-            this.txtPrefix.Name = "txtPrefix";
-            this.txtPrefix.Size = new System.Drawing.Size(177, 21);
-            this.txtPrefix.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "前缀";
-            // 
-            // txtKeywords
-            // 
-            this.txtKeywords.Location = new System.Drawing.Point(66, 20);
-            this.txtKeywords.Name = "txtKeywords";
-            this.txtKeywords.Size = new System.Drawing.Size(177, 21);
-            this.txtKeywords.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "关键字";
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(btnClose);
+            panel1.Controls.Add(btnSave);
+            panel1.Controls.Add(numNumberLength);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(txtPrefix);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(txtKeywords);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(15, 17);
+            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(516, 285);
+            panel1.TabIndex = 0;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(260, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(179, 12);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "如果有多个关键字用逗号\",\"分隔";
+            label4.AutoSize = true;
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(303, 33);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(177, 17);
+            label4.TabIndex = 8;
+            label4.Text = "如果有多个关键字用逗号\",\"分隔";
+            // 
+            // btnClose
+            // 
+            btnClose.Location = new Point(196, 215);
+            btnClose.Margin = new Padding(4, 4, 4, 4);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(88, 33);
+            btnClose.TabIndex = 7;
+            btnClose.Text = "取消";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
+            // 
+            // btnSave
+            // 
+            btnSave.Location = new Point(77, 215);
+            btnSave.Margin = new Padding(4, 4, 4, 4);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(88, 33);
+            btnSave.TabIndex = 6;
+            btnSave.Text = "保存";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
+            // 
+            // numNumberLength
+            // 
+            numNumberLength.Location = new Point(77, 144);
+            numNumberLength.Margin = new Padding(4, 4, 4, 4);
+            numNumberLength.Name = "numNumberLength";
+            numNumberLength.Size = new Size(206, 23);
+            numNumberLength.TabIndex = 5;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(22, 144);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(32, 17);
+            label3.TabIndex = 4;
+            label3.Text = "位数";
+            // 
+            // txtPrefix
+            // 
+            txtPrefix.Location = new Point(77, 84);
+            txtPrefix.Margin = new Padding(4, 4, 4, 4);
+            txtPrefix.Name = "txtPrefix";
+            txtPrefix.Size = new Size(206, 23);
+            txtPrefix.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(22, 88);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(32, 17);
+            label2.TabIndex = 2;
+            label2.Text = "前缀";
+            // 
+            // txtKeywords
+            // 
+            txtKeywords.Location = new Point(77, 28);
+            txtKeywords.Margin = new Padding(4, 4, 4, 4);
+            txtKeywords.Name = "txtKeywords";
+            txtKeywords.Size = new Size(206, 23);
+            txtKeywords.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(22, 33);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(44, 17);
+            label1.TabIndex = 0;
+            label1.Text = "关键字";
             // 
             // RuleEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 234);
-            this.Controls.Add(this.panel1);
-            this.MaximizeBox = false;
-            this.Name = "RuleEditForm";
-            this.Text = "RuleEditForm";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numNumberLength)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(541, 332);
+            Controls.Add(panel1);
+            Margin = new Padding(4, 4, 4, 4);
+            MaximizeBox = false;
+            Name = "RuleEditForm";
+            Text = "角色编辑";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numNumberLength).EndInit();
+            ResumeLayout(false);
 
         }
 

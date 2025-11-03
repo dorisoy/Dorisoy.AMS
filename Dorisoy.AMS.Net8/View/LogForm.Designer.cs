@@ -28,140 +28,152 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnLogExport = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-            this.dtpStart = new System.Windows.Forms.DateTimePicker();
-            this.cmbOperationType = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvLogs = new System.Windows.Forms.DataGridView();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).BeginInit();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            btnLogExport = new Button();
+            btnSearch = new Button();
+            dtpEnd = new DateTimePicker();
+            dtpStart = new DateTimePicker();
+            cmbOperationType = new ComboBox();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            panel2 = new Panel();
+            dgvLogs = new DataGridView();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvLogs).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnLogExport);
-            this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Controls.Add(this.dtpEnd);
-            this.panel1.Controls.Add(this.dtpStart);
-            this.panel1.Controls.Add(this.cmbOperationType);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(872, 38);
-            this.panel1.TabIndex = 0;
+            panel1.Controls.Add(btnLogExport);
+            panel1.Controls.Add(btnSearch);
+            panel1.Controls.Add(dtpEnd);
+            panel1.Controls.Add(dtpStart);
+            panel1.Controls.Add(cmbOperationType);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(15, 18);
+            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1017, 54);
+            panel1.TabIndex = 0;
             // 
             // btnLogExport
             // 
-            this.btnLogExport.Location = new System.Drawing.Point(732, 6);
-            this.btnLogExport.Name = "btnLogExport";
-            this.btnLogExport.Size = new System.Drawing.Size(75, 23);
-            this.btnLogExport.TabIndex = 7;
-            this.btnLogExport.Text = "导出";
-            this.btnLogExport.UseVisualStyleBackColor = true;
-            this.btnLogExport.Click += new System.EventHandler(this.btnLogExport_Click);
+            btnLogExport.Location = new Point(914, 9);
+            btnLogExport.Margin = new Padding(4, 4, 4, 4);
+            btnLogExport.Name = "btnLogExport";
+            btnLogExport.Size = new Size(88, 33);
+            btnLogExport.TabIndex = 7;
+            btnLogExport.Text = "导出";
+            btnLogExport.UseVisualStyleBackColor = true;
+            btnLogExport.Click += btnLogExport_Click;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(651, 6);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "查询";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            btnSearch.Location = new Point(818, 9);
+            btnSearch.Margin = new Padding(4, 4, 4, 4);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(88, 33);
+            btnSearch.TabIndex = 6;
+            btnSearch.Text = "查询";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // dtpEnd
             // 
-            this.dtpEnd.CustomFormat = "yyyy-MM-dd HH:mm";
-            this.dtpEnd.Location = new System.Drawing.Point(496, 6);
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(149, 21);
-            this.dtpEnd.TabIndex = 5;
+            dtpEnd.CustomFormat = "yyyy-MM-dd HH:mm";
+            dtpEnd.Location = new Point(579, 12);
+            dtpEnd.Margin = new Padding(4, 4, 4, 4);
+            dtpEnd.Name = "dtpEnd";
+            dtpEnd.Size = new Size(173, 23);
+            dtpEnd.TabIndex = 5;
             // 
             // dtpStart
             // 
-            this.dtpStart.CustomFormat = "yyyy-MM-dd HH:mm";
-            this.dtpStart.Location = new System.Drawing.Point(267, 6);
-            this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(152, 21);
-            this.dtpStart.TabIndex = 4;
+            dtpStart.CustomFormat = "yyyy-MM-dd HH:mm";
+            dtpStart.Location = new Point(311, 12);
+            dtpStart.Margin = new Padding(4, 4, 4, 4);
+            dtpStart.Name = "dtpStart";
+            dtpStart.Size = new Size(177, 23);
+            dtpStart.TabIndex = 4;
             // 
             // cmbOperationType
             // 
-            this.cmbOperationType.FormattingEnabled = true;
-            this.cmbOperationType.Location = new System.Drawing.Point(72, 7);
-            this.cmbOperationType.Name = "cmbOperationType";
-            this.cmbOperationType.Size = new System.Drawing.Size(105, 20);
-            this.cmbOperationType.TabIndex = 3;
+            cmbOperationType.FormattingEnabled = true;
+            cmbOperationType.Location = new Point(88, 14);
+            cmbOperationType.Margin = new Padding(4, 4, 4, 4);
+            cmbOperationType.Name = "cmbOperationType";
+            cmbOperationType.Size = new Size(122, 25);
+            cmbOperationType.TabIndex = 3;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(425, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "结束时间：";
+            label3.AutoSize = true;
+            label3.Location = new Point(496, 17);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(68, 17);
+            label3.TabIndex = 2;
+            label3.Text = "结束时间：";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(208, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "开始时间：";
+            label2.AutoSize = true;
+            label2.Location = new Point(243, 17);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(68, 17);
+            label2.TabIndex = 1;
+            label2.Text = "开始时间：";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "操作类型：";
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 17);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(68, 17);
+            label1.TabIndex = 0;
+            label1.Text = "操作类型：";
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dgvLogs);
-            this.panel2.Location = new System.Drawing.Point(13, 58);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(872, 461);
-            this.panel2.TabIndex = 1;
+            panel2.Controls.Add(dgvLogs);
+            panel2.Location = new Point(15, 82);
+            panel2.Margin = new Padding(4, 4, 4, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1017, 653);
+            panel2.TabIndex = 1;
             // 
             // dgvLogs
             // 
-            this.dgvLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLogs.Location = new System.Drawing.Point(12, 14);
-            this.dgvLogs.Name = "dgvLogs";
-            this.dgvLogs.RowTemplate.Height = 23;
-            this.dgvLogs.Size = new System.Drawing.Size(847, 444);
-            this.dgvLogs.TabIndex = 0;
+            dgvLogs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvLogs.Location = new Point(14, 20);
+            dgvLogs.Margin = new Padding(4, 4, 4, 4);
+            dgvLogs.Name = "dgvLogs";
+            dgvLogs.RowTemplate.Height = 23;
+            dgvLogs.Size = new Size(988, 629);
+            dgvLogs.TabIndex = 0;
             // 
             // LogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 531);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.MaximizeBox = false;
-            this.Name = "LogForm";
-            this.Text = "日志查询";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1046, 752);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Margin = new Padding(4, 4, 4, 4);
+            MaximizeBox = false;
+            Name = "LogForm";
+            Text = "日志查询";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvLogs).EndInit();
+            ResumeLayout(false);
 
         }
 

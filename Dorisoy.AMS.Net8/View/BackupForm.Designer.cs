@@ -28,81 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvBackupList = new System.Windows.Forms.DataGridView();
-            this.BtnRestore = new System.Windows.Forms.Button();
-            this.BtnBackup = new System.Windows.Forms.Button();
-            this.btnClearDatabase = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBackupList)).BeginInit();
-            this.SuspendLayout();
+            groupBox1 = new GroupBox();
+            dgvBackupList = new DataGridView();
+            BtnRestore = new Button();
+            BtnBackup = new Button();
+            btnClearDatabase = new Button();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvBackupList).BeginInit();
+            SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgvBackupList);
-            this.groupBox1.Location = new System.Drawing.Point(21, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(845, 271);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "备份与还原数据库";
+            groupBox1.Controls.Add(dgvBackupList);
+            groupBox1.Location = new Point(24, 17);
+            groupBox1.Margin = new Padding(4, 4, 4, 4);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(4, 4, 4, 4);
+            groupBox1.Size = new Size(986, 384);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "备份与还原数据库";
             // 
             // dgvBackupList
             // 
-            this.dgvBackupList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBackupList.Location = new System.Drawing.Point(7, 20);
-            this.dgvBackupList.MultiSelect = false;
-            this.dgvBackupList.Name = "dgvBackupList";
-            this.dgvBackupList.RowTemplate.Height = 23;
-            this.dgvBackupList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBackupList.Size = new System.Drawing.Size(818, 245);
-            this.dgvBackupList.TabIndex = 0;
+            dgvBackupList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBackupList.Location = new Point(8, 28);
+            dgvBackupList.Margin = new Padding(4, 4, 4, 4);
+            dgvBackupList.MultiSelect = false;
+            dgvBackupList.Name = "dgvBackupList";
+            dgvBackupList.RowTemplate.Height = 23;
+            dgvBackupList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvBackupList.Size = new Size(954, 347);
+            dgvBackupList.TabIndex = 0;
             // 
             // BtnRestore
             // 
-            this.BtnRestore.Location = new System.Drawing.Point(421, 303);
-            this.BtnRestore.Name = "BtnRestore";
-            this.BtnRestore.Size = new System.Drawing.Size(75, 23);
-            this.BtnRestore.TabIndex = 1;
-            this.BtnRestore.Text = "还原数据库";
-            this.BtnRestore.UseVisualStyleBackColor = true;
-            this.BtnRestore.Click += new System.EventHandler(this.BtnRestore_Click);
+            BtnRestore.Location = new Point(632, 429);
+            BtnRestore.Margin = new Padding(4, 4, 4, 4);
+            BtnRestore.Name = "BtnRestore";
+            BtnRestore.Size = new Size(88, 33);
+            BtnRestore.TabIndex = 1;
+            BtnRestore.Text = "还原数据库";
+            BtnRestore.UseVisualStyleBackColor = true;
+            BtnRestore.Click += BtnRestore_Click;
             // 
             // BtnBackup
             // 
-            this.BtnBackup.Location = new System.Drawing.Point(297, 303);
-            this.BtnBackup.Name = "BtnBackup";
-            this.BtnBackup.Size = new System.Drawing.Size(75, 23);
-            this.BtnBackup.TabIndex = 0;
-            this.BtnBackup.Text = "备份数据库";
-            this.BtnBackup.UseVisualStyleBackColor = true;
-            this.BtnBackup.Click += new System.EventHandler(this.BtnBackup_Click);
+            BtnBackup.Location = new Point(488, 429);
+            BtnBackup.Margin = new Padding(4, 4, 4, 4);
+            BtnBackup.Name = "BtnBackup";
+            BtnBackup.Size = new Size(88, 33);
+            BtnBackup.TabIndex = 0;
+            BtnBackup.Text = "备份数据库";
+            BtnBackup.UseVisualStyleBackColor = true;
+            BtnBackup.Click += BtnBackup_Click;
             // 
             // btnClearDatabase
             // 
-            this.btnClearDatabase.Location = new System.Drawing.Point(163, 303);
-            this.btnClearDatabase.Name = "btnClearDatabase";
-            this.btnClearDatabase.Size = new System.Drawing.Size(88, 23);
-            this.btnClearDatabase.TabIndex = 2;
-            this.btnClearDatabase.Text = "初始化数据库";
-            this.btnClearDatabase.UseVisualStyleBackColor = true;
-            this.btnClearDatabase.Click += new System.EventHandler(this.btnClearDatabase_Click);
+            btnClearDatabase.Location = new Point(341, 429);
+            btnClearDatabase.Margin = new Padding(4, 4, 4, 4);
+            btnClearDatabase.Name = "btnClearDatabase";
+            btnClearDatabase.Size = new Size(103, 33);
+            btnClearDatabase.TabIndex = 2;
+            btnClearDatabase.Text = "初始化数据库";
+            btnClearDatabase.UseVisualStyleBackColor = true;
+            btnClearDatabase.Click += btnClearDatabase_Click;
             // 
             // BackupForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 343);
-            this.Controls.Add(this.btnClearDatabase);
-            this.Controls.Add(this.BtnBackup);
-            this.Controls.Add(this.BtnRestore);
-            this.Controls.Add(this.groupBox1);
-            this.MaximizeBox = false;
-            this.Name = "BackupForm";
-            this.Text = "备份与还原数据库";
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBackupList)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1034, 486);
+            Controls.Add(btnClearDatabase);
+            Controls.Add(BtnBackup);
+            Controls.Add(BtnRestore);
+            Controls.Add(groupBox1);
+            Margin = new Padding(4, 4, 4, 4);
+            MaximizeBox = false;
+            Name = "BackupForm";
+            Text = "备份与还原数据库";
+            groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvBackupList).EndInit();
+            ResumeLayout(false);
 
         }
 

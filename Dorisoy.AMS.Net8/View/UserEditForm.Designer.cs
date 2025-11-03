@@ -28,190 +28,206 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.chkCanAdd = new System.Windows.Forms.CheckBox();
-            this.chkCanEdit = new System.Windows.Forms.CheckBox();
-            this.chkCanPrint = new System.Windows.Forms.CheckBox();
-            this.chkCanExport = new System.Windows.Forms.CheckBox();
-            this.chkCanImport = new System.Windows.Forms.CheckBox();
-            this.chkManageNumber = new System.Windows.Forms.CheckBox();
-            this.chkIsAdmin = new System.Windows.Forms.CheckBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.chkManageLog = new System.Windows.Forms.CheckBox();
-            this.chkManageData = new System.Windows.Forms.CheckBox();
-            this.SuspendLayout();
+            txtUsername = new TextBox();
+            label1 = new Label();
+            chkCanAdd = new CheckBox();
+            chkCanEdit = new CheckBox();
+            chkCanPrint = new CheckBox();
+            chkCanExport = new CheckBox();
+            chkCanImport = new CheckBox();
+            chkManageNumber = new CheckBox();
+            chkIsAdmin = new CheckBox();
+            txtPassword = new TextBox();
+            label2 = new Label();
+            btnSave = new Button();
+            btnCancel = new Button();
+            chkManageLog = new CheckBox();
+            chkManageData = new CheckBox();
+            SuspendLayout();
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(119, 40);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(117, 21);
-            this.txtUsername.TabIndex = 0;
+            txtUsername.Location = new Point(139, 33);
+            txtUsername.Margin = new Padding(4, 4, 4, 4);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(163, 23);
+            txtUsername.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "用户名：";
+            label1.AutoSize = true;
+            label1.Location = new Point(32, 36);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(56, 17);
+            label1.TabIndex = 1;
+            label1.Text = "用户名：";
             // 
             // chkCanAdd
             // 
-            this.chkCanAdd.AutoSize = true;
-            this.chkCanAdd.Location = new System.Drawing.Point(62, 121);
-            this.chkCanAdd.Name = "chkCanAdd";
-            this.chkCanAdd.Size = new System.Drawing.Size(72, 16);
-            this.chkCanAdd.TabIndex = 2;
-            this.chkCanAdd.Text = "添加资产";
-            this.chkCanAdd.UseVisualStyleBackColor = true;
+            chkCanAdd.AutoSize = true;
+            chkCanAdd.Location = new Point(34, 146);
+            chkCanAdd.Margin = new Padding(4, 4, 4, 4);
+            chkCanAdd.Name = "chkCanAdd";
+            chkCanAdd.Size = new Size(75, 21);
+            chkCanAdd.TabIndex = 2;
+            chkCanAdd.Text = "添加资产";
+            chkCanAdd.UseVisualStyleBackColor = true;
             // 
             // chkCanEdit
             // 
-            this.chkCanEdit.AutoSize = true;
-            this.chkCanEdit.Location = new System.Drawing.Point(62, 154);
-            this.chkCanEdit.Name = "chkCanEdit";
-            this.chkCanEdit.Size = new System.Drawing.Size(72, 16);
-            this.chkCanEdit.TabIndex = 3;
-            this.chkCanEdit.Text = "修改资产";
-            this.chkCanEdit.UseVisualStyleBackColor = true;
+            chkCanEdit.AutoSize = true;
+            chkCanEdit.Location = new Point(34, 175);
+            chkCanEdit.Margin = new Padding(4, 4, 4, 4);
+            chkCanEdit.Name = "chkCanEdit";
+            chkCanEdit.Size = new Size(75, 21);
+            chkCanEdit.TabIndex = 3;
+            chkCanEdit.Text = "修改资产";
+            chkCanEdit.UseVisualStyleBackColor = true;
             // 
             // chkCanPrint
             // 
-            this.chkCanPrint.AutoSize = true;
-            this.chkCanPrint.Location = new System.Drawing.Point(62, 189);
-            this.chkCanPrint.Name = "chkCanPrint";
-            this.chkCanPrint.Size = new System.Drawing.Size(48, 16);
-            this.chkCanPrint.TabIndex = 4;
-            this.chkCanPrint.Text = "打印";
-            this.chkCanPrint.UseVisualStyleBackColor = true;
+            chkCanPrint.AutoSize = true;
+            chkCanPrint.Location = new Point(32, 204);
+            chkCanPrint.Margin = new Padding(4, 4, 4, 4);
+            chkCanPrint.Name = "chkCanPrint";
+            chkCanPrint.Size = new Size(51, 21);
+            chkCanPrint.TabIndex = 4;
+            chkCanPrint.Text = "打印";
+            chkCanPrint.UseVisualStyleBackColor = true;
             // 
             // chkCanExport
             // 
-            this.chkCanExport.AutoSize = true;
-            this.chkCanExport.Location = new System.Drawing.Point(62, 228);
-            this.chkCanExport.Name = "chkCanExport";
-            this.chkCanExport.Size = new System.Drawing.Size(48, 16);
-            this.chkCanExport.TabIndex = 5;
-            this.chkCanExport.Text = "导出";
-            this.chkCanExport.UseVisualStyleBackColor = true;
+            chkCanExport.AutoSize = true;
+            chkCanExport.Location = new Point(32, 233);
+            chkCanExport.Margin = new Padding(4, 4, 4, 4);
+            chkCanExport.Name = "chkCanExport";
+            chkCanExport.Size = new Size(51, 21);
+            chkCanExport.TabIndex = 5;
+            chkCanExport.Text = "导出";
+            chkCanExport.UseVisualStyleBackColor = true;
             // 
             // chkCanImport
             // 
-            this.chkCanImport.AutoSize = true;
-            this.chkCanImport.Location = new System.Drawing.Point(62, 262);
-            this.chkCanImport.Name = "chkCanImport";
-            this.chkCanImport.Size = new System.Drawing.Size(48, 16);
-            this.chkCanImport.TabIndex = 6;
-            this.chkCanImport.Text = "导入";
-            this.chkCanImport.UseVisualStyleBackColor = true;
+            chkCanImport.AutoSize = true;
+            chkCanImport.Location = new Point(32, 262);
+            chkCanImport.Margin = new Padding(4, 4, 4, 4);
+            chkCanImport.Name = "chkCanImport";
+            chkCanImport.Size = new Size(51, 21);
+            chkCanImport.TabIndex = 6;
+            chkCanImport.Text = "导入";
+            chkCanImport.UseVisualStyleBackColor = true;
             // 
             // chkManageNumber
             // 
-            this.chkManageNumber.AutoSize = true;
-            this.chkManageNumber.Location = new System.Drawing.Point(62, 296);
-            this.chkManageNumber.Name = "chkManageNumber";
-            this.chkManageNumber.Size = new System.Drawing.Size(72, 16);
-            this.chkManageNumber.TabIndex = 7;
-            this.chkManageNumber.Text = "编号设置";
-            this.chkManageNumber.UseVisualStyleBackColor = true;
+            chkManageNumber.AutoSize = true;
+            chkManageNumber.Location = new Point(32, 291);
+            chkManageNumber.Margin = new Padding(4, 4, 4, 4);
+            chkManageNumber.Name = "chkManageNumber";
+            chkManageNumber.Size = new Size(75, 21);
+            chkManageNumber.TabIndex = 7;
+            chkManageNumber.Text = "编号设置";
+            chkManageNumber.UseVisualStyleBackColor = true;
             // 
             // chkIsAdmin
             // 
-            this.chkIsAdmin.AutoSize = true;
-            this.chkIsAdmin.Location = new System.Drawing.Point(62, 391);
-            this.chkIsAdmin.Name = "chkIsAdmin";
-            this.chkIsAdmin.Size = new System.Drawing.Size(84, 16);
-            this.chkIsAdmin.TabIndex = 8;
-            this.chkIsAdmin.Text = "设为管理员";
-            this.chkIsAdmin.UseVisualStyleBackColor = true;
+            chkIsAdmin.AutoSize = true;
+            chkIsAdmin.Location = new Point(32, 378);
+            chkIsAdmin.Margin = new Padding(4, 4, 4, 4);
+            chkIsAdmin.Name = "chkIsAdmin";
+            chkIsAdmin.Size = new Size(87, 21);
+            chkIsAdmin.TabIndex = 8;
+            chkIsAdmin.Text = "设为管理员";
+            chkIsAdmin.UseVisualStyleBackColor = true;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(119, 82);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(117, 21);
-            this.txtPassword.TabIndex = 9;
+            txtPassword.Location = new Point(139, 92);
+            txtPassword.Margin = new Padding(4, 4, 4, 4);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(163, 23);
+            txtPassword.TabIndex = 9;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 12);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "密码:";
+            label2.AutoSize = true;
+            label2.Location = new Point(32, 95);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(35, 17);
+            label2.TabIndex = 10;
+            label2.Text = "密码:";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(80, 449);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 11;
-            this.btnSave.Text = "保存";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.Location = new Point(13, 438);
+            btnSave.Margin = new Padding(4, 4, 4, 4);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(130, 33);
+            btnSave.TabIndex = 11;
+            btnSave.Text = "保存";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(192, 449);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 12;
-            this.btnCancel.Text = "取消";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            btnCancel.Location = new Point(174, 438);
+            btnCancel.Margin = new Padding(4, 4, 4, 4);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(128, 33);
+            btnCancel.TabIndex = 12;
+            btnCancel.Text = "取消";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // chkManageLog
             // 
-            this.chkManageLog.AutoSize = true;
-            this.chkManageLog.Location = new System.Drawing.Point(62, 327);
-            this.chkManageLog.Name = "chkManageLog";
-            this.chkManageLog.Size = new System.Drawing.Size(48, 16);
-            this.chkManageLog.TabIndex = 13;
-            this.chkManageLog.Text = "日志";
-            this.chkManageLog.UseVisualStyleBackColor = true;
+            chkManageLog.AutoSize = true;
+            chkManageLog.Location = new Point(32, 320);
+            chkManageLog.Margin = new Padding(4, 4, 4, 4);
+            chkManageLog.Name = "chkManageLog";
+            chkManageLog.Size = new Size(51, 21);
+            chkManageLog.TabIndex = 13;
+            chkManageLog.Text = "日志";
+            chkManageLog.UseVisualStyleBackColor = true;
             // 
             // chkManageData
             // 
-            this.chkManageData.AutoSize = true;
-            this.chkManageData.Location = new System.Drawing.Point(62, 360);
-            this.chkManageData.Name = "chkManageData";
-            this.chkManageData.Size = new System.Drawing.Size(84, 16);
-            this.chkManageData.TabIndex = 14;
-            this.chkManageData.Text = "管理数据库";
-            this.chkManageData.UseVisualStyleBackColor = true;
+            chkManageData.AutoSize = true;
+            chkManageData.Location = new Point(32, 349);
+            chkManageData.Margin = new Padding(4, 4, 4, 4);
+            chkManageData.Name = "chkManageData";
+            chkManageData.Size = new Size(87, 21);
+            chkManageData.TabIndex = 14;
+            chkManageData.Text = "管理数据库";
+            chkManageData.UseVisualStyleBackColor = true;
             // 
             // UserEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 541);
-            this.Controls.Add(this.chkManageData);
-            this.Controls.Add(this.chkManageLog);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.chkIsAdmin);
-            this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.chkManageNumber);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.chkCanImport);
-            this.Controls.Add(this.chkCanAdd);
-            this.Controls.Add(this.chkCanExport);
-            this.Controls.Add(this.chkCanEdit);
-            this.Controls.Add(this.chkCanPrint);
-            this.MaximizeBox = false;
-            this.Name = "UserEditForm";
-            this.Text = "UserEditForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(321, 493);
+            Controls.Add(chkManageData);
+            Controls.Add(chkManageLog);
+            Controls.Add(btnCancel);
+            Controls.Add(btnSave);
+            Controls.Add(label2);
+            Controls.Add(txtPassword);
+            Controls.Add(chkIsAdmin);
+            Controls.Add(txtUsername);
+            Controls.Add(chkManageNumber);
+            Controls.Add(label1);
+            Controls.Add(chkCanImport);
+            Controls.Add(chkCanAdd);
+            Controls.Add(chkCanExport);
+            Controls.Add(chkCanEdit);
+            Controls.Add(chkCanPrint);
+            Margin = new Padding(4, 4, 4, 4);
+            MaximizeBox = false;
+            Name = "UserEditForm";
+            Text = "UserEditForm";
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
