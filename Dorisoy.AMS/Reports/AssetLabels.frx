@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="2023-01-01" ReportInfo.Modified="04/29/2025 10:23:20" ReportInfo.CreatorVersion="2015.1.3.0">
+<Dictionary>
+<TableDataSource Name="MyData" ReferenceName="MyData" DataType="System.Int32" Enabled="true">
+<Column Name="AssetID" DataType="System.String"/>
+<Column Name="Category" DataType="System.String"/>
+<Column Name="Name" DataType="System.String"/>
+<Column Name="Model" DataType="System.String"/>
+<Column Name="Location" DataType="System.String"/>
+<Column Name="Department" DataType="System.String"/>
+</TableDataSource>
+</Dictionary>
+<ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" Columns.Count="3" Columns.Width="60" Columns.Positions="5,70,135">
+<DataBand Name="Data1" Width="226.8" Height="236.25" DataSource="MyData">
+<TableObject Name="Table1" Left="9.45" Top="56.7" Width="207.9" Height="150" Border.Lines="All" Border.Color="Black">
+<TableColumn Name="Column1" Width="66.15"/>
+<TableColumn Name="Column2" Width="141.75"/>
+<TableRow Name="Row1" Height="25">
+<TableCell Name="Cell1" Text="资产编号" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+<TableCell Name="Cell2" Text="[MyData.AssetID]" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+</TableRow>
+<TableRow Name="Row2" Height="25">
+<TableCell Name="Cell6" Text="资产名称" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+<TableCell Name="Cell7" Text="[MyData.Name]" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+</TableRow>
+<TableRow Name="Row3" Height="25">
+<TableCell Name="Cell11" Text="资产类别" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+<TableCell Name="Cell12" Text="[MyData.Category]" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+</TableRow>
+<TableRow Name="Row4" Height="25">
+<TableCell Name="Cell16" Text="规格型号" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+<TableCell Name="Cell17" Text="[MyData.Model]" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+</TableRow>
+<TableRow Name="Row5" Height="25">
+<TableCell Name="Cell21" Text="存放地点" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+<TableCell Name="Cell22" Text="[MyData.Location]" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+</TableRow>
+<TableRow Name="Row6" Height="25">
+<TableCell Name="Cell23" Text="责任部门" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+<TableCell Name="Cell24" Text="[MyData.Department]" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+</TableRow>
+</TableObject>
+<TextObject Name="Text1" Left="28.35" Top="28.35" Width="160.65" Height="18.9" Text="西诺医疗器械集团有限公司" Font="宋体, 7pt" HorzAlign="Center"/>
+</DataBand>
+</ReportPage>
+</Report>
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="2023-01-01" ReportInfo.Modified="04/29/2025 10:23:20" ReportInfo.CreatorVersion="2015.1.3.0">
+<Dictionary>
+<TableDataSource Name="MyData" ReferenceName="MyData" DataType="System.Int32" Enabled="true">
+<Column Name="AssetID" DataType="System.String"/>
+<Column Name="Category" DataType="System.String"/>
+<Column Name="Name" DataType="System.String"/>
+<Column Name="Model" DataType="System.String"/>
+<Column Name="Location" DataType="System.String"/>
+<Column Name="Department" DataType="System.String"/>
+</TableDataSource>
+</Dictionary>
+<ReportPage Name="Page1" RawPaperSize="9" LeftMargin="0" TopMargin="10" RightMargin="0" BottomMargin="10" Columns.Count="3" Columns.Width="70" Columns.Positions="0,70,140">
+<DataBand Name="Data1" Width="210" Height="99" DataSource="MyData" Guides="0">
+
+<TableObject Name="Table1" Left="5" Top="15" Width="60" Height="70" Border.Lines="All" Border.Color="Black">
+<TableColumn Name="Column1" Width="20"/>
+<TableColumn Name="Column2" Width="40"/>
+<TableRow Name="Row1" Height="15">
+<TableCell Name="Cell1" Text="资产编号" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+<TableCell Name="Cell2" Text="[MyData.AssetID]" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+</TableRow>
+<TableRow Name="Row2" Height="15">
+<TableCell Name="Cell6" Text="资产名称" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+<TableCell Name="Cell7" Text="[MyData.Name]" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+</TableRow>
+<TableRow Name="Row3" Height="15">
+<TableCell Name="Cell11" Text="资产类别" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+<TableCell Name="Cell12" Text="[MyData.Category]" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+</TableRow>
+<TableRow Name="Row4" Height="15">
+<TableCell Name="Cell16" Text="规格型号" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+<TableCell Name="Cell17" Text="[MyData.Model]" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+</TableRow>
+<TableRow Name="Row5" Height="15">
+<TableCell Name="Cell21" Text="存放地点" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+<TableCell Name="Cell22" Text="[MyData.Location]" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+</TableRow>
+<TableRow Name="Row6" Height="15">
+<TableCell Name="Cell23" Text="责任部门" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+<TableCell Name="Cell24" Text="[MyData.Department]" Font="宋体, 7pt" Border.Lines="All" Border.Color="Black" TextFill.Color="Black" HorzAlign="Center" VertAlign="Center"/>
+</TableRow>
+
+</TableObject>
+<TextObject Name="Text1" Left="10" Top="2" Width="50" Height="10" Text="西诺医疗器械集团有限公司" Font="宋体,8pt" HorzAlign="Center"/>
+</DataBand>
+</ReportPage>
+</Report>

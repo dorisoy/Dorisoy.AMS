@@ -1,0 +1,213 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>设备管理.ico</ApplicationIcon>
+    <AssemblyName>Dorisoy.AMS</AssemblyName>
+    <RootNamespace>Dorisoy.AMS</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 数据库相关 -->
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.0" />
+    <PackageReference Include="SqlSugarCoreNoDrive" Version="5.1.4.205" />
+    
+    <!-- Excel处理 -->
+    <PackageReference Include="NPOI" Version="2.7.5" />
+    
+    <!-- 报表处理 -->
+    <PackageReference Include="FastReport.Compat" Version="2026.1.2" />
+    <PackageReference Include="FastReport.OpenSource" Version="2026.1.2" />
+    
+    <!-- 加密和安全 -->
+    <PackageReference Include="System.Management" Version="8.0.0" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="8.0.1" />
+    <PackageReference Include="System.Security.Cryptography.Xml" Version="8.0.2" />
+    
+    <!-- 其他依赖 -->
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 创业项旨在此止 -->
+    <Compile Include="Program.cs" />
+    <!-- 窗体编译配置 -->
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BackupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BackupForm.Designer.cs">
+      <DependentUpon>BackupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogForm.Designer.cs">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PasswordInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PasswordInputForm.Designer.cs">
+      <DependentUpon>PasswordInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RegistrationForm.Designer.cs">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RuleConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RuleConfigForm.Designer.cs">
+      <DependentUpon>RuleConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RuleEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RuleEditForm.Designer.cs">
+      <DependentUpon>RuleEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UserEditForm.Designer.cs">
+      <DependentUpon>UserEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UserManagementForm.Designer.cs">
+      <DependentUpon>UserManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BorrowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BorrowForm.Designer.cs">
+      <DependentUpon>BorrowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ReturnForm.Designer.cs">
+      <DependentUpon>ReturnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BorrowRecordsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BorrowRecordsForm.Designer.cs">
+      <DependentUpon>BorrowRecordsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <!-- 配置类和其他 C# 源文件 -->
+    <Compile Include="Configs\StatusConfig.cs" />
+    <Compile Include="Data\SqliteHelper.cs" />
+    <Compile Include="Models\Asset.cs" />
+    <Compile Include="Models\AssetRule.cs" />
+    <Compile Include="Models\BorrowRecord.cs" />
+    <Compile Include="Models\AssetViewModel.cs" />
+    <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\global_settings.cs" />
+    <Compile Include="Services\ExcelService\ExcelExporter.cs" />
+    <Compile Include="Services\ExcelService\ExcelImporter.cs" />
+    <Compile Include="Services\ExcelService\LogExcelExporter.cs" />
+    <Compile Include="Utilities\AssetNumberGenerator.cs" />
+    <Compile Include="Utilities\BackupManager.cs" />
+    <Compile Include="Utilities\LicenseManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 窗体资源配置 -->
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BackupForm.resx">
+      <DependentUpon>BackupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LogForm.resx">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PasswordInputForm.resx">
+      <DependentUpon>PasswordInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RegistrationForm.resx">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RuleConfigForm.resx">
+      <DependentUpon>RuleConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RuleEditForm.resx">
+      <DependentUpon>RuleEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserEditForm.resx">
+      <DependentUpon>UserEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserManagementForm.resx">
+      <DependentUpon>UserManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BorrowForm.resx">
+      <DependentUpon>BorrowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReturnForm.resx">
+      <DependentUpon>ReturnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BorrowRecordsForm.resx">
+      <DependentUpon>BorrowRecordsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Chinese %28Simplified%29.frl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reports\AssetLabels.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Reports\AssetLabels60x30.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates\AssetLabel.btw">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
