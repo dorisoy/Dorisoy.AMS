@@ -117,17 +117,24 @@ namespace Dorisoy.AMS.view
 
             // 格式化显示
             dataGridView1.CellFormatting += DataGridView1_CellFormatting;
+            
+            // 防止数据错误弹窗
+            dataGridView1.DataError += (sender, e) => { e.ThrowException = false; };
         }
 
         private void DataGridView1_CellFormatting(object? sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "colRecordTypeName")
+            try
             {
+                if (e.RowIndex < 0 || e.RowIndex >= dataGridView1.Rows.Count) return;
+                
                 var row = dataGridView1.Rows[e.RowIndex];
-                if (row.DataBoundItem != null)
+                if (row.IsNewRow || row.DataBoundItem == null) return;
+
+                if (dataGridView1.Columns[e.ColumnIndex].Name == "colRecordTypeName")
                 {
                     dynamic item = row.DataBoundItem;
-                    string typeName = item.RecordTypeName;
+                    string typeName = item.RecordTypeName ?? "";
                     if (typeName == "入库")
                     {
                         e.CellStyle.ForeColor = Color.Green;
@@ -139,22 +146,32 @@ namespace Dorisoy.AMS.view
                         e.CellStyle.Font = new Font(dataGridView1.Font, FontStyle.Bold);
                     }
                 }
-            }
-            else if (dataGridView1.Columns[e.ColumnIndex].Name == "colQuantity")
-            {
-                if (e.Value is decimal qty)
+                else if (dataGridView1.Columns[e.ColumnIndex].Name == "colQuantity")
                 {
+                    // 从数据源获取数量值
+                    dynamic item = row.DataBoundItem;
+                    decimal qty = Convert.ToDecimal(item.Quantity);
+                    
                     if (qty > 0)
                     {
                         e.Value = $"+{qty}";
                         e.CellStyle.ForeColor = Color.Green;
                     }
+                    else if (qty < 0)
+                    {
+                        e.Value = qty.ToString();  // 负数已经带符号
+                        e.CellStyle.ForeColor = Color.Red;
+                    }
                     else
                     {
-                        e.CellStyle.ForeColor = Color.Red;
+                        e.Value = "0";
                     }
                     e.FormattingApplied = true;
                 }
+            }
+            catch
+            {
+                // 忽略格式化错误
             }
         }
 
