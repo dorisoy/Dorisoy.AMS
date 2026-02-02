@@ -21,23 +21,12 @@ namespace Dorisoy.AMS.services
         /// <param name="assetId">资产编号</param>
         /// <param name="width">条码宽度</param>
         /// <param name="height">条码高度</param>
-        /// <returns>条码图片（每次返回新副本）</returns>
+        /// <returns>条码图片（每次返回新实例）</returns>
         public static Image GenerateBarcode(string assetId, int width = 150, int height = 50)
         {
             if (string.IsNullOrWhiteSpace(assetId))
             {
                 return CreatePlaceholderImage(width, height);
-            }
-
-            // 检查缓存
-            string cacheKey = $"{assetId}_{width}_{height}";
-            lock (_cacheLock)
-            {
-                if (_barcodeCache.TryGetValue(cacheKey, out var cachedImage))
-                {
-                    // 返回副本，避免缓存图像被外部释放
-                    return (Image)cachedImage.Clone();
-                }
             }
 
             try
@@ -55,21 +44,7 @@ namespace Dorisoy.AMS.services
                     Renderer = new BitmapRenderer()
                 };
 
-                var barcode = writer.Write(assetId);
-                
-                // 缓存条码
-                lock (_cacheLock)
-                {
-                    // 如果已存在，先释放旧的
-                    if (_barcodeCache.TryGetValue(cacheKey, out var oldImage))
-                    {
-                        oldImage?.Dispose();
-                    }
-                    _barcodeCache[cacheKey] = barcode;
-                }
-
-                // 返回副本
-                return (Image)barcode.Clone();
+                return writer.Write(assetId);
             }
             catch (Exception ex)
             {
