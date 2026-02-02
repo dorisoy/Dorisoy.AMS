@@ -188,53 +188,37 @@
     <Compile Include="Models\Asset.cs" />
     <Compile Include="Utilities\BackupManager.cs" />
     <Compile Include="Utilities\LicenseManager.cs" />
-    <Compile Include="View\BackupForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="View\BackupForm.cs" />
     <Compile Include="View\BackupForm.Designer.cs">
       <DependentUpon>BackupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\LogForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="View\LogForm.cs" />
     <Compile Include="View\LogForm.Designer.cs">
       <DependentUpon>LogForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\PasswordInputForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="View\PasswordInputForm.cs" />
     <Compile Include="View\PasswordInputForm.Designer.cs">
       <DependentUpon>PasswordInputForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\RegistrationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="View\RegistrationForm.cs" />
     <Compile Include="View\RegistrationForm.Designer.cs">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserManagementForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="View\UserManagementForm.cs" />
     <Compile Include="View\UserManagementForm.Designer.cs">
       <DependentUpon>UserManagementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\EditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="View\EditForm.cs" />
     <Compile Include="View\EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\ExcelService\ExcelExporter.cs" />
     <Compile Include="Services\ExcelService\ExcelImporter.cs" />
-    <Compile Include="View\LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="View\LoginForm.cs" />
     <Compile Include="View\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="View\MainForm.cs" />
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
@@ -242,23 +226,17 @@
     <Compile Include="Models\global_settings.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\RuleConfigForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="View\RuleConfigForm.cs" />
     <Compile Include="View\RuleConfigForm.Designer.cs">
       <DependentUpon>RuleConfigForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\RuleEditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="View\RuleEditForm.cs" />
     <Compile Include="View\RuleEditForm.Designer.cs">
       <DependentUpon>RuleEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\SqliteHelper.cs" />
     <Compile Include="Configs\StatusConfig.cs" />
-    <Compile Include="View\UserEditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="View\UserEditForm.cs" />
     <Compile Include="View\UserEditForm.Designer.cs">
       <DependentUpon>UserEditForm.cs</DependentUpon>
     </Compile>

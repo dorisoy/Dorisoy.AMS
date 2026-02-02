@@ -148,7 +148,8 @@ namespace Dorisoy.AMS.view
                 new { Name = "colCategory", Prop = "Category", Header = "资产类别", Width = 100 },
                 new { Name = "colAssetName", Prop = "Name", Header = "资产名称", Width = 150 },
                 new { Name = "colModel", Prop = "Model", Header = "规格型号", Width = 120 },
-                new { Name = "colQuantity", Prop = "Quantity", Header = "数量", Width = 60 },
+                new { Name = "colQuantity", Prop = "Quantity", Header = "库存数量", Width = 70 },
+                new { Name = "colMinQuantity", Prop = "MinQuantity", Header = "最低库存", Width = 70 },
                 new { Name = "colUnit", Prop = "Unit", Header = "单位", Width = 60 },
                 new { Name = "colAvailableQuantity", Prop = "AvailableQuantity", Header = "可用库存", Width = 80 },
                 new { Name = "colLocation", Prop = "Location", Header = "存放地点", Width = 150 },
@@ -438,6 +439,9 @@ namespace Dorisoy.AMS.view
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            if (e.RowIndex < 0) return;
+
+            // 状态列格式化
             if (dataGridView1.Columns[e.ColumnIndex].Name == "colStatus")
             {
                 // 安全类型转换
@@ -454,6 +458,26 @@ namespace Dorisoy.AMS.view
                 else
                 {
                     e.Value = "数据格式错误";
+                }
+            }
+
+            // 库存预警高亮显示（库存数量低于最低库存时红色高亮）
+            var row = dataGridView1.Rows[e.RowIndex];
+            var dataBoundItem = row.DataBoundItem;
+            if (dataBoundItem != null)
+            {
+                var asset = dataBoundItem as Asset;
+                if (asset != null && asset.MinQuantity > 0 && asset.Quantity <= asset.MinQuantity)
+                {
+                    // 库存预警：当前库存低于或等于最低库存时，整行红色背景
+                    row.DefaultCellStyle.BackColor = Color.LightCoral;
+                    row.DefaultCellStyle.ForeColor = Color.White;
+                }
+                else
+                {
+                    // 正常库存，恢复默认样式
+                    row.DefaultCellStyle.BackColor = Color.White;
+                    row.DefaultCellStyle.ForeColor = Color.Black;
                 }
             }
         }
@@ -589,6 +613,48 @@ namespace Dorisoy.AMS.view
         {
             var form = new WarehouseForm();
             form.ShowDialog();
+        }
+
+        /// <summary>
+        /// 报损登记
+        /// </summary>
+        private void btnScrap_Click(object sender, EventArgs e)
+        {
+            var selectedAssets = GetSelectedAssets();
+            if (selectedAssets.Count == 0)
+            {
+                MessageBox.Show("请先选择要报损的资产！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (selectedAssets.Count > 1)
+            {
+                MessageBox.Show("请选择单个资产进行报损登记！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var asset = selectedAssets[0];
+            if (asset.Quantity <= 0)
+            {
+                MessageBox.Show("该资产库存为0，无法报损！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var form = new ScrapForm(asset);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                LoadData();
+            }
+        }
+
+        /// <summary>
+        /// 盘点管理
+        /// </summary>
+        private void btnInventoryCheck_Click(object sender, EventArgs e)
+        {
+            var form = new InventoryCheckForm();
+            form.ShowDialog();
+            LoadData();  // 盘点后刷新数据
         }
 
 

@@ -147,6 +147,18 @@
 		<Compile Include="View\StockRecordsForm.Designer.cs">
 			<DependentUpon>StockRecordsForm.cs</DependentUpon>
 		</Compile>
+		<Compile Include="View\ScrapForm.cs">
+			<SubType>Form</SubType>
+		</Compile>
+		<Compile Include="View\ScrapForm.Designer.cs">
+			<DependentUpon>ScrapForm.cs</DependentUpon>
+		</Compile>
+		<Compile Include="View\InventoryCheckForm.cs">
+			<SubType>Form</SubType>
+		</Compile>
+		<Compile Include="View\InventoryCheckForm.Designer.cs">
+			<DependentUpon>InventoryCheckForm.cs</DependentUpon>
+		</Compile>
 		<Compile Include="Properties\Resources.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>
@@ -224,6 +236,12 @@
 		</EmbeddedResource>
 		<EmbeddedResource Include="View\StockRecordsForm.resx">
 			<DependentUpon>StockRecordsForm.cs</DependentUpon>
+		</EmbeddedResource>
+		<EmbeddedResource Include="View\ScrapForm.resx">
+			<DependentUpon>ScrapForm.cs</DependentUpon>
+		</EmbeddedResource>
+		<EmbeddedResource Include="View\InventoryCheckForm.resx">
+			<DependentUpon>InventoryCheckForm.cs</DependentUpon>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Properties\Resources.resx">
 			<Generator>ResXFileCodeGenerator</Generator>

@@ -72,17 +72,22 @@ namespace Dorisoy.AMS.view
                 txtCategory.Text = "电子电器";
                 txtUnit.Text = "台";
                 numQuantity.Value = 1;
+                numMinQuantity.Value = 0;
             }
             else
             {
                 txtCategory.Text = _asset.Category;
                 txtUnit.Text = _asset.Unit;
                 numQuantity.Value = _asset.Quantity; // 编辑模式才绑定数据
+                numMinQuantity.Value = _asset.MinQuantity; // 最低库存
             }
             // 模式相关设置
             Text = _isEditMode ? "编辑资产" : "新增资产";
             cmbStatus.Enabled = _isEditMode;
             txtAssetID.Enabled = true;
+            
+            // 编辑模式下禁用库存数量编辑（已入库后不能修改，否则库存逻辑会出错）
+            numQuantity.Enabled = !_isEditMode;
         }
 
         private async void TxtName_Leave(object sender, EventArgs e)
@@ -287,6 +292,7 @@ namespace Dorisoy.AMS.view
                 _asset.Name = txtName.Text.Trim();
                 _asset.Model = txtModel.Text;
                 _asset.Quantity = (int)numQuantity.Value;
+                _asset.MinQuantity = (int)numMinQuantity.Value;
                 _asset.Unit = txtUnit.Text.Trim();
                 
                 // 保存仓库关联
@@ -319,6 +325,9 @@ namespace Dorisoy.AMS.view
                     {
                         db.Insertable(_asset).ExecuteCommand();
                         RecordLog("新增", _asset);
+                        
+                        // 新增资产时生成采购入库记录
+                        CreatePurchaseInRecord(db, _asset);
                     }
                 }
 
@@ -372,6 +381,11 @@ namespace Dorisoy.AMS.view
                 changes.Add($"数量：{original.Quantity}=>{updated.Quantity}");
             }
 
+            if (original.MinQuantity != updated.MinQuantity)
+            {
+                changes.Add($"最低库存：{original.MinQuantity}=>{updated.MinQuantity}");
+            }
+
             if (original.Unit != updated.Unit)
             {
                 changes.Add($"单位：{original.Unit}=>{updated.Unit}");
@@ -418,6 +432,7 @@ namespace Dorisoy.AMS.view
             _asset.Name = txtName.Text;
             _asset.Model = txtModel.Text;
             _asset.Quantity = (int)numQuantity.Value;
+            _asset.MinQuantity = (int)numMinQuantity.Value;
             _asset.Unit = txtUnit.Text;
             
             // 更新仓库关联
@@ -444,5 +459,39 @@ namespace Dorisoy.AMS.view
         }
 
         private void btnCancel_Click(object sender, EventArgs e) => Close();
+
+        /// <summary>
+        /// 创建采购入库记录
+        /// </summary>
+        private void CreatePurchaseInRecord(SqlSugarClient db, Asset asset)
+        {
+            try
+            {
+                var stockRecord = new StockRecord
+                {
+                    AssetID = asset.AssetID,
+                    AssetName = asset.Name,
+                    WarehouseId = asset.WarehouseId,
+                    WarehouseName = asset.Location,
+                    RecordType = StockRecordType.In,
+                    BusinessType = StockBusinessType.PurchaseIn,
+                    Quantity = asset.Quantity,
+                    BeforeQuantity = 0,  // 新增资产，之前库存为0
+                    AfterQuantity = asset.Quantity,
+                    RelatedId = asset.AssetID,
+                    Operator = AppContext.CurrentUser?.Username ?? "系统",
+                    Handler = asset.User,
+                    RecordTime = DateTime.Now,
+                    Remark = $"新增资产入库，资产编号：{asset.AssetID}"
+                };
+
+                db.Insertable(stockRecord).ExecuteCommand();
+            }
+            catch (Exception ex)
+            {
+                // 入库记录创建失败不影响资产新增，仅记录日志
+                System.Diagnostics.Debug.WriteLine($"创建采购入库记录失败：{ex.Message}");
+            }
+        }
     }
 }

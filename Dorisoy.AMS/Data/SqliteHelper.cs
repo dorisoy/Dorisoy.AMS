@@ -7,10 +7,8 @@ using System.Windows.Forms;
 
 namespace Dorisoy.AMS
 {
-
     public class SqliteHelper
     {
-
         public static SqlSugarClient GetDb()
         {
             return new SqlSugarClient(new ConnectionConfig()

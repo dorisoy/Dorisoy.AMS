@@ -43,6 +43,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cmbUser = new System.Windows.Forms.ComboBox();
             this.numQuantity = new System.Windows.Forms.NumericUpDown();
+            this.lblMinQuantity = new System.Windows.Forms.Label();
+            this.numMinQuantity = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtRemark = new System.Windows.Forms.TextBox();
@@ -53,6 +55,7 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMinQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -130,9 +133,30 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "数量";
             // 
+            // lblMinQuantity
+            // 
+            this.lblMinQuantity.AutoSize = true;
+            this.lblMinQuantity.Location = new System.Drawing.Point(28, 189);
+            this.lblMinQuantity.Name = "lblMinQuantity";
+            this.lblMinQuantity.Size = new System.Drawing.Size(53, 12);
+            this.lblMinQuantity.TabIndex = 29;
+            this.lblMinQuantity.Text = "最低库存";
+            // 
+            // numMinQuantity
+            // 
+            this.numMinQuantity.Location = new System.Drawing.Point(87, 185);
+            this.numMinQuantity.Name = "numMinQuantity";
+            this.numMinQuantity.Size = new System.Drawing.Size(172, 21);
+            this.numMinQuantity.TabIndex = 30;
+            this.numMinQuantity.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            // 
             // txtUnit
             // 
-            this.txtUnit.Location = new System.Drawing.Point(87, 185);
+            this.txtUnit.Location = new System.Drawing.Point(87, 212);
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.Size = new System.Drawing.Size(172, 21);
             this.txtUnit.TabIndex = 11;
@@ -141,7 +165,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 189);
+            this.label6.Location = new System.Drawing.Point(28, 216);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 10;
@@ -150,7 +174,7 @@
             // cmbLocation
             // 
             this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(87, 212);
+            this.cmbLocation.Location = new System.Drawing.Point(87, 239);
             this.cmbLocation.Name = "cmbLocation";
             this.cmbLocation.Size = new System.Drawing.Size(172, 20);
             this.cmbLocation.TabIndex = 13;
@@ -158,7 +182,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 243);
+            this.label8.Location = new System.Drawing.Point(28, 270);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 14;
@@ -167,7 +191,7 @@
             // cmbUser
             // 
             this.cmbUser.FormattingEnabled = true;
-            this.cmbUser.Location = new System.Drawing.Point(87, 266);
+            this.cmbUser.Location = new System.Drawing.Point(87, 293);
             this.cmbUser.Name = "cmbUser";
             this.cmbUser.Size = new System.Drawing.Size(172, 20);
             this.cmbUser.TabIndex = 17;
@@ -187,7 +211,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 215);
+            this.label7.Location = new System.Drawing.Point(28, 242);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 19;
@@ -196,7 +220,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 271);
+            this.label10.Location = new System.Drawing.Point(28, 298);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 12);
             this.label10.TabIndex = 20;
@@ -204,7 +228,7 @@
             // 
             // txtRemark
             // 
-            this.txtRemark.Location = new System.Drawing.Point(87, 295);
+            this.txtRemark.Location = new System.Drawing.Point(87, 322);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(172, 21);
             this.txtRemark.TabIndex = 23;
@@ -212,7 +236,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(28, 299);
+            this.label11.Location = new System.Drawing.Point(28, 326);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(29, 12);
             this.label11.TabIndex = 22;
@@ -220,7 +244,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(71, 372);
+            this.btnSave.Location = new System.Drawing.Point(71, 399);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 24;
@@ -230,7 +254,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(170, 372);
+            this.btnCancel.Location = new System.Drawing.Point(170, 399);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 25;
@@ -241,7 +265,7 @@
             // cmbDepartment
             // 
             this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(88, 240);
+            this.cmbDepartment.Location = new System.Drawing.Point(88, 267);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(171, 20);
             this.cmbDepartment.TabIndex = 26;
@@ -249,7 +273,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(28, 329);
+            this.lblStatus.Location = new System.Drawing.Point(28, 356);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(29, 12);
             this.lblStatus.TabIndex = 27;
@@ -258,7 +282,7 @@
             // cmbStatus
             // 
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(88, 322);
+            this.cmbStatus.Location = new System.Drawing.Point(88, 349);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(171, 20);
             this.cmbStatus.TabIndex = 28;
@@ -267,7 +291,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 439);
+            this.ClientSize = new System.Drawing.Size(307, 466);
+            this.Controls.Add(this.numMinQuantity);
+            this.Controls.Add(this.lblMinQuantity);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.cmbDepartment);
@@ -296,6 +322,7 @@
             this.Name = "EditForm";
             this.Text = "EditForm";
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMinQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,5 +354,7 @@
         private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.Label lblMinQuantity;
+        private System.Windows.Forms.NumericUpDown numMinQuantity;
     }
 }

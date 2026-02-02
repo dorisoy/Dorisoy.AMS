@@ -10,7 +10,8 @@
         public string Category { get; set; } = string.Empty;       // 资产类别
         public string Name { get; set; } = string.Empty;          // 资产名称
         public string Model { get; set; } = string.Empty;          // 规格型号
-        public decimal Quantity { get; set; }      // 数量
+        public decimal Quantity { get; set; }      // 数量（库存数量）
+        public decimal MinQuantity { get; set; }   // 最低库存量（库存预警阈值）
         public string Unit { get; set; } = string.Empty;          // 单位
         public int WarehouseId { get; set; }                       // 仓库ID（关联仓库表）
         public string Location { get; set; } = string.Empty;      // 存放地点（仓库名称）

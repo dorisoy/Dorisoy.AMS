@@ -6,9 +6,11 @@ using System.Text;
 namespace Dorisoy.AMS
 {
 
+    /// <summary>
+    /// SQLite数据库帮助类
+    /// </summary>
     public class SqliteHelper
     {
-
         public static SqlSugarClient GetDb()
         {
             return new SqlSugarClient(new ConnectionConfig()
@@ -20,6 +22,9 @@ namespace Dorisoy.AMS
             });
         }
 
+        /// <summary>
+        /// 初始化数据库和表
+        /// </summary>
         public static void InitDb()
         {
             using (var db = GetDb())
@@ -49,6 +54,7 @@ namespace Dorisoy.AMS
                     };
                     db.Insertable(defaultWarehouse).ExecuteCommand();
                 }
+
                 //System.Exception:“Asset 创建失败,请认真检查 1、属性需要get set 2、特殊类型需要加Ignore 具体错误内容： Could not load file or assembly 'Microsoft.Data.Sqlite, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'. 系统找不到指定的文件。”
 
 
@@ -103,12 +109,14 @@ namespace Dorisoy.AMS
                     };
                     db.Insertable(defaultUser).ExecuteCommand();
                 }
-
-
-
             }
         }
 
+        /// <summary>
+        ///  验证管理员密码
+        /// </summary>
+        /// <param name="inputPassword"></param>
+        /// <returns></returns>
         public static bool ValidateAdminPassword(string inputPassword)
         {
             try
@@ -137,7 +145,11 @@ namespace Dorisoy.AMS
             }
         }
 
-
+        /// <summary>
+        /// 转换密码为SHA256哈希
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public static string HashPassword(string password)
         {
             using (var sha256 = SHA256.Create())
