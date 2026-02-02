@@ -28,331 +28,352 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtAssetID = new System.Windows.Forms.TextBox();
-            this.txtCategory = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtModel = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtUnit = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbLocation = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cmbUser = new System.Windows.Forms.ComboBox();
-            this.numQuantity = new System.Windows.Forms.NumericUpDown();
-            this.lblMinQuantity = new System.Windows.Forms.Label();
-            this.numMinQuantity = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtRemark = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.cmbDepartment = new System.Windows.Forms.ComboBox();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
-            this.grpBarcode = new System.Windows.Forms.GroupBox();
-            this.picBarcode = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMinQuantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBarcode)).BeginInit();
-            this.grpBarcode.SuspendLayout();
-            this.SuspendLayout();
+            label1 = new Label();
+            txtAssetID = new TextBox();
+            txtCategory = new TextBox();
+            label2 = new Label();
+            txtName = new TextBox();
+            label3 = new Label();
+            txtModel = new TextBox();
+            label4 = new Label();
+            label5 = new Label();
+            txtUnit = new TextBox();
+            label6 = new Label();
+            cmbLocation = new ComboBox();
+            label8 = new Label();
+            cmbUser = new ComboBox();
+            numQuantity = new NumericUpDown();
+            lblMinQuantity = new Label();
+            numMinQuantity = new NumericUpDown();
+            label7 = new Label();
+            label10 = new Label();
+            txtRemark = new TextBox();
+            label11 = new Label();
+            btnSave = new Button();
+            btnCancel = new Button();
+            cmbDepartment = new ComboBox();
+            lblStatus = new Label();
+            cmbStatus = new ComboBox();
+            grpBarcode = new GroupBox();
+            picBarcode = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)numQuantity).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numMinQuantity).BeginInit();
+            grpBarcode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picBarcode).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "资产编号";
+            label1.AutoSize = true;
+            label1.Location = new Point(33, 62);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(56, 17);
+            label1.TabIndex = 0;
+            label1.Text = "资产编号";
             // 
             // txtAssetID
             // 
-            this.txtAssetID.Location = new System.Drawing.Point(87, 40);
-            this.txtAssetID.Name = "txtAssetID";
-            this.txtAssetID.ReadOnly = true;
-            this.txtAssetID.Size = new System.Drawing.Size(172, 21);
-            this.txtAssetID.TabIndex = 1;
+            txtAssetID.Location = new Point(102, 57);
+            txtAssetID.Margin = new Padding(4, 4, 4, 4);
+            txtAssetID.Name = "txtAssetID";
+            txtAssetID.ReadOnly = true;
+            txtAssetID.Size = new Size(200, 23);
+            txtAssetID.TabIndex = 1;
             // 
             // txtCategory
             // 
-            this.txtCategory.Location = new System.Drawing.Point(87, 77);
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(172, 21);
-            this.txtCategory.TabIndex = 3;
-            this.txtCategory.Text = "电子电器";
+            txtCategory.Location = new Point(102, 109);
+            txtCategory.Margin = new Padding(4, 4, 4, 4);
+            txtCategory.Name = "txtCategory";
+            txtCategory.Size = new Size(200, 23);
+            txtCategory.TabIndex = 3;
+            txtCategory.Text = "电子电器";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "资产类型";
+            label2.AutoSize = true;
+            label2.Location = new Point(33, 115);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(56, 17);
+            label2.TabIndex = 2;
+            label2.Text = "资产类型";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(87, 104);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(172, 21);
-            this.txtName.TabIndex = 5;
+            txtName.Location = new Point(102, 147);
+            txtName.Margin = new Padding(4, 4, 4, 4);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(200, 23);
+            txtName.TabIndex = 5;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "资产名称";
+            label3.AutoSize = true;
+            label3.Location = new Point(33, 153);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(56, 17);
+            label3.TabIndex = 4;
+            label3.Text = "资产名称";
             // 
             // txtModel
             // 
-            this.txtModel.Location = new System.Drawing.Point(87, 131);
-            this.txtModel.Name = "txtModel";
-            this.txtModel.Size = new System.Drawing.Size(172, 21);
-            this.txtModel.TabIndex = 7;
+            txtModel.Location = new Point(102, 186);
+            txtModel.Margin = new Padding(4, 4, 4, 4);
+            txtModel.Name = "txtModel";
+            txtModel.Size = new Size(200, 23);
+            txtModel.TabIndex = 7;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 135);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "规格型号";
+            label4.AutoSize = true;
+            label4.Location = new Point(33, 191);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(56, 17);
+            label4.TabIndex = 6;
+            label4.Text = "规格型号";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 162);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "数量";
-            // 
-            // lblMinQuantity
-            // 
-            this.lblMinQuantity.AutoSize = true;
-            this.lblMinQuantity.Location = new System.Drawing.Point(28, 189);
-            this.lblMinQuantity.Name = "lblMinQuantity";
-            this.lblMinQuantity.Size = new System.Drawing.Size(53, 12);
-            this.lblMinQuantity.TabIndex = 29;
-            this.lblMinQuantity.Text = "最低库存";
-            // 
-            // numMinQuantity
-            // 
-            this.numMinQuantity.Location = new System.Drawing.Point(87, 185);
-            this.numMinQuantity.Name = "numMinQuantity";
-            this.numMinQuantity.Size = new System.Drawing.Size(172, 21);
-            this.numMinQuantity.TabIndex = 30;
-            this.numMinQuantity.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
+            label5.AutoSize = true;
+            label5.Location = new Point(33, 230);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(32, 17);
+            label5.TabIndex = 8;
+            label5.Text = "数量";
             // 
             // txtUnit
             // 
-            this.txtUnit.Location = new System.Drawing.Point(87, 212);
-            this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(172, 21);
-            this.txtUnit.TabIndex = 11;
-            this.txtUnit.Text = "台";
+            txtUnit.Location = new Point(102, 300);
+            txtUnit.Margin = new Padding(4, 4, 4, 4);
+            txtUnit.Name = "txtUnit";
+            txtUnit.Size = new Size(200, 23);
+            txtUnit.TabIndex = 11;
+            txtUnit.Text = "台";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 216);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 12);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "单位";
+            label6.AutoSize = true;
+            label6.Location = new Point(33, 306);
+            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(32, 17);
+            label6.TabIndex = 10;
+            label6.Text = "单位";
             // 
             // cmbLocation
             // 
-            this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(87, 239);
-            this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(172, 20);
-            this.cmbLocation.TabIndex = 13;
+            cmbLocation.FormattingEnabled = true;
+            cmbLocation.Location = new Point(102, 339);
+            cmbLocation.Margin = new Padding(4, 4, 4, 4);
+            cmbLocation.Name = "cmbLocation";
+            cmbLocation.Size = new Size(200, 25);
+            cmbLocation.TabIndex = 13;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 270);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "所属部门";
+            label8.AutoSize = true;
+            label8.Location = new Point(33, 382);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(56, 17);
+            label8.TabIndex = 14;
+            label8.Text = "所属部门";
             // 
             // cmbUser
             // 
-            this.cmbUser.FormattingEnabled = true;
-            this.cmbUser.Location = new System.Drawing.Point(87, 293);
-            this.cmbUser.Name = "cmbUser";
-            this.cmbUser.Size = new System.Drawing.Size(172, 20);
-            this.cmbUser.TabIndex = 17;
+            cmbUser.FormattingEnabled = true;
+            cmbUser.Location = new Point(102, 415);
+            cmbUser.Margin = new Padding(4, 4, 4, 4);
+            cmbUser.Name = "cmbUser";
+            cmbUser.Size = new Size(200, 25);
+            cmbUser.TabIndex = 17;
             // 
             // numQuantity
             // 
-            this.numQuantity.Location = new System.Drawing.Point(87, 160);
-            this.numQuantity.Name = "numQuantity";
-            this.numQuantity.Size = new System.Drawing.Size(172, 21);
-            this.numQuantity.TabIndex = 18;
-            this.numQuantity.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            numQuantity.Location = new Point(102, 227);
+            numQuantity.Margin = new Padding(4, 4, 4, 4);
+            numQuantity.Name = "numQuantity";
+            numQuantity.Size = new Size(201, 23);
+            numQuantity.TabIndex = 18;
+            numQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // lblMinQuantity
+            // 
+            lblMinQuantity.AutoSize = true;
+            lblMinQuantity.Location = new Point(33, 268);
+            lblMinQuantity.Margin = new Padding(4, 0, 4, 0);
+            lblMinQuantity.Name = "lblMinQuantity";
+            lblMinQuantity.Size = new Size(56, 17);
+            lblMinQuantity.TabIndex = 29;
+            lblMinQuantity.Text = "最低库存";
+            // 
+            // numMinQuantity
+            // 
+            numMinQuantity.Location = new Point(102, 262);
+            numMinQuantity.Margin = new Padding(4, 4, 4, 4);
+            numMinQuantity.Name = "numMinQuantity";
+            numMinQuantity.Size = new Size(201, 23);
+            numMinQuantity.TabIndex = 30;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 242);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "存放地点";
+            label7.AutoSize = true;
+            label7.Location = new Point(33, 343);
+            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(56, 17);
+            label7.TabIndex = 19;
+            label7.Text = "存放地点";
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 298);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 12);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "使用人";
+            label10.AutoSize = true;
+            label10.Location = new Point(33, 422);
+            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(44, 17);
+            label10.TabIndex = 20;
+            label10.Text = "使用人";
             // 
             // txtRemark
             // 
-            this.txtRemark.Location = new System.Drawing.Point(87, 322);
-            this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(172, 21);
-            this.txtRemark.TabIndex = 23;
+            txtRemark.Location = new Point(102, 456);
+            txtRemark.Margin = new Padding(4, 4, 4, 4);
+            txtRemark.Name = "txtRemark";
+            txtRemark.Size = new Size(200, 23);
+            txtRemark.TabIndex = 23;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(28, 326);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(29, 12);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "备注";
+            label11.AutoSize = true;
+            label11.Location = new Point(33, 462);
+            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(32, 17);
+            label11.TabIndex = 22;
+            label11.Text = "备注";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(71, 399);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 24;
-            this.btnSave.Text = "保存";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.Location = new Point(83, 565);
+            btnSave.Margin = new Padding(4, 4, 4, 4);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(88, 33);
+            btnSave.TabIndex = 24;
+            btnSave.Text = "保存";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(170, 399);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 25;
-            this.btnCancel.Text = "取消";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            btnCancel.Location = new Point(198, 565);
+            btnCancel.Margin = new Padding(4, 4, 4, 4);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(88, 33);
+            btnCancel.TabIndex = 25;
+            btnCancel.Text = "取消";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // cmbDepartment
             // 
-            this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(88, 267);
-            this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(171, 20);
-            this.cmbDepartment.TabIndex = 26;
+            cmbDepartment.FormattingEnabled = true;
+            cmbDepartment.Location = new Point(103, 378);
+            cmbDepartment.Margin = new Padding(4, 4, 4, 4);
+            cmbDepartment.Name = "cmbDepartment";
+            cmbDepartment.Size = new Size(199, 25);
+            cmbDepartment.TabIndex = 26;
             // 
             // lblStatus
             // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(28, 356);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(29, 12);
-            this.lblStatus.TabIndex = 27;
-            this.lblStatus.Text = "状态";
+            lblStatus.AutoSize = true;
+            lblStatus.Location = new Point(33, 504);
+            lblStatus.Margin = new Padding(4, 0, 4, 0);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(32, 17);
+            lblStatus.TabIndex = 27;
+            lblStatus.Text = "状态";
             // 
             // cmbStatus
             // 
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(88, 349);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(171, 20);
-            this.cmbStatus.TabIndex = 28;
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Location = new Point(103, 494);
+            cmbStatus.Margin = new Padding(4, 4, 4, 4);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(199, 25);
+            cmbStatus.TabIndex = 28;
             // 
             // grpBarcode
             // 
-            this.grpBarcode.Controls.Add(this.picBarcode);
-            this.grpBarcode.Location = new System.Drawing.Point(280, 12);
-            this.grpBarcode.Name = "grpBarcode";
-            this.grpBarcode.Size = new System.Drawing.Size(200, 120);
-            this.grpBarcode.TabIndex = 31;
-            this.grpBarcode.TabStop = false;
-            this.grpBarcode.Text = "资产条码";
+            grpBarcode.Controls.Add(picBarcode);
+            grpBarcode.Location = new Point(327, 17);
+            grpBarcode.Margin = new Padding(4, 4, 4, 4);
+            grpBarcode.Name = "grpBarcode";
+            grpBarcode.Padding = new Padding(4, 4, 4, 4);
+            grpBarcode.Size = new Size(368, 101);
+            grpBarcode.TabIndex = 31;
+            grpBarcode.TabStop = false;
+            grpBarcode.Text = "资产条码";
             // 
             // picBarcode
             // 
-            this.picBarcode.BackColor = System.Drawing.Color.White;
-            this.picBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picBarcode.Location = new System.Drawing.Point(3, 17);
-            this.picBarcode.Name = "picBarcode";
-            this.picBarcode.Size = new System.Drawing.Size(194, 100);
-            this.picBarcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBarcode.TabIndex = 0;
-            this.picBarcode.TabStop = false;
+            picBarcode.BackColor = Color.White;
+            picBarcode.Dock = DockStyle.Fill;
+            picBarcode.Location = new Point(4, 20);
+            picBarcode.Margin = new Padding(4, 4, 4, 4);
+            picBarcode.Name = "picBarcode";
+            picBarcode.Size = new Size(360, 77);
+            picBarcode.SizeMode = PictureBoxSizeMode.Zoom;
+            picBarcode.TabIndex = 0;
+            picBarcode.TabStop = false;
             // 
             // EditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 466);
-            this.Controls.Add(this.grpBarcode);
-            this.Controls.Add(this.numMinQuantity);
-            this.Controls.Add(this.lblMinQuantity);
-            this.Controls.Add(this.cmbStatus);
-            this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.cmbDepartment);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtRemark);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.numQuantity);
-            this.Controls.Add(this.cmbUser);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.cmbLocation);
-            this.Controls.Add(this.txtUnit);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtModel);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtCategory);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtAssetID);
-            this.Controls.Add(this.label1);
-            this.MaximizeBox = false;
-            this.Name = "EditForm";
-            this.Text = "EditForm";
-            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMinQuantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBarcode)).EndInit();
-            this.grpBarcode.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(714, 660);
+            Controls.Add(grpBarcode);
+            Controls.Add(numMinQuantity);
+            Controls.Add(lblMinQuantity);
+            Controls.Add(cmbStatus);
+            Controls.Add(lblStatus);
+            Controls.Add(cmbDepartment);
+            Controls.Add(btnCancel);
+            Controls.Add(btnSave);
+            Controls.Add(txtRemark);
+            Controls.Add(label11);
+            Controls.Add(label10);
+            Controls.Add(label7);
+            Controls.Add(numQuantity);
+            Controls.Add(cmbUser);
+            Controls.Add(label8);
+            Controls.Add(cmbLocation);
+            Controls.Add(txtUnit);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(txtModel);
+            Controls.Add(label4);
+            Controls.Add(txtName);
+            Controls.Add(label3);
+            Controls.Add(txtCategory);
+            Controls.Add(label2);
+            Controls.Add(txtAssetID);
+            Controls.Add(label1);
+            Margin = new Padding(4, 4, 4, 4);
+            MaximizeBox = false;
+            Name = "EditForm";
+            Text = "EditForm";
+            ((System.ComponentModel.ISupportInitialize)numQuantity).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numMinQuantity).EndInit();
+            grpBarcode.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picBarcode).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
