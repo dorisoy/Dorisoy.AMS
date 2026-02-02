@@ -5,6 +5,9 @@ namespace Dorisoy.AMS.models
     [SugarTable("Logs")]
     public class Log
     {
+        /// <summary>
+        /// 主键ID
+        /// </summary>
         [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
         public int Id { get; set; }
 

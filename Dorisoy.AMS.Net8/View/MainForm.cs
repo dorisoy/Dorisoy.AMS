@@ -42,7 +42,95 @@ namespace Dorisoy.AMS.view
             LoadPrinterSettings();
             InitializeComponents();
             LoadData();
+            
+            // 注册快捷键
+            this.KeyPreview = true;
+            this.KeyDown += MainForm_KeyDown;
+        }
 
+        /// <summary>
+        /// 快捷键处理：F5刷新、Delete删除、Ctrl+F搜索
+        /// </summary>
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                e.SuppressKeyPress = true;
+                LoadData();
+            }
+            else if (e.KeyCode == Keys.Delete && dataGridView1.SelectedRows.Count > 0)
+            {
+                e.SuppressKeyPress = true;
+                DeleteSelectedAsset();
+            }
+            else if (e.Control && e.KeyCode == Keys.F)
+            {
+                e.SuppressKeyPress = true;
+                txtSearch.Focus();
+                txtSearch.SelectAll();
+            }
+        }
+
+        /// <summary>
+        /// 删除选中的资产（软删除）
+        /// </summary>
+        private void DeleteSelectedAsset()
+        {
+            if (dataGridView1.SelectedRows.Count == 0) return;
+
+            // 从投影类型中提取AssetID
+            var assetIds = new List<string>();
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                if (row.IsNewRow || row.DataBoundItem == null) continue;
+                dynamic item = row.DataBoundItem;
+                assetIds.Add(item.AssetID);
+            }
+
+            if (assetIds.Count == 0) return;
+
+            var msg = assetIds.Count == 1 
+                ? $"确定要删除选中的资产吗？"
+                : $"确定要删除选中的 {assetIds.Count} 个资产吗？";
+
+            if (MessageBox.Show(msg, "确认删除", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                using (var db = SqliteHelper.GetDb())
+                {
+                    foreach (var assetId in assetIds)
+                    {
+                        var asset = db.Queryable<Asset>().First(a => a.AssetID == assetId);
+                        if (asset == null) continue;
+
+                        // 软删除：将状态改为1(删除)
+                        asset.Status = 1;
+                        db.Updateable(asset).ExecuteCommand();
+
+                        // 记录日志
+                        var log = new Log
+                        {
+                            OperationType = "删除",
+                            OperationTime = DateTime.Now,
+                            Operator = AppContext.CurrentUser?.Username ?? "系统",
+                            AssetNumber = asset.AssetID,
+                            Details = $"资产名称：{asset.Name}"
+                        };
+                        db.Insertable(log).ExecuteCommand();
+                    }
+                }
+
+                MessageBox.Show($"成功删除 {assetIds.Count} 个资产", "删除成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"删除失败：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -620,30 +708,46 @@ namespace Dorisoy.AMS.view
         /// </summary>
         private void btnScrap_Click(object sender, EventArgs e)
         {
-            var selectedAssets = GetSelectedAssets();
-            if (selectedAssets.Count == 0)
+            if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("请先选择要报损的资产！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (selectedAssets.Count > 1)
+            if (dataGridView1.SelectedRows.Count > 1)
             {
                 MessageBox.Show("请选择单个资产进行报损登记！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var asset = selectedAssets[0];
-            if (asset.Quantity <= 0)
-            {
-                MessageBox.Show("该资产库存为0，无法报损！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            // 从投影类型中提取AssetID
+            var row = dataGridView1.SelectedRows[0];
+            if (row.IsNewRow || row.DataBoundItem == null) return;
+            
+            dynamic item = row.DataBoundItem;
+            string assetId = item.AssetID;
 
-            var form = new ScrapForm(asset);
-            if (form.ShowDialog() == DialogResult.OK)
+            // 从数据库查询完整的Asset对象
+            using (var db = SqliteHelper.GetDb())
             {
-                LoadData();
+                var asset = db.Queryable<Asset>().First(a => a.AssetID == assetId);
+                if (asset == null)
+                {
+                    MessageBox.Show("资产不存在！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (asset.Quantity <= 0)
+                {
+                    MessageBox.Show("该资产库存为0，无法报损！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                var form = new ScrapForm(asset);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
             }
         }
 

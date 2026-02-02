@@ -109,45 +109,73 @@ namespace Dorisoy.AMS.view
             {
                 using (var db = SqliteHelper.GetDb())
                 {
-                    // 初始化借用记录表（只在表不存在时创建）
-                    if (!db.DbMaintenance.IsAnyTable("BorrowRecords"))
+                    // 使用事务保证数据一致性
+                    db.Ado.BeginTran();
+                    try
                     {
-                        db.CodeFirst.InitTables(typeof(BorrowRecord));
+                        // 初始化借用记录表（只在表不存在时创建）
+                        if (!db.DbMaintenance.IsAnyTable("BorrowRecords"))
+                        {
+                            db.CodeFirst.InitTables(typeof(BorrowRecord));
+                        }
+
+                        // 实时检查可用库存（防止并发超借）
+                        var asset = db.Queryable<Asset>().First(a => a.AssetID == _asset.AssetID);
+                        if (asset == null)
+                        {
+                            throw new Exception("资产不存在或已被删除");
+                        }
+
+                        var borrowedQty = db.Queryable<BorrowRecord>()
+                            .Where(r => r.AssetID == _asset.AssetID && r.Status == 0)
+                            .Sum(r => r.BorrowedQuantity);
+                        var realAvailable = asset.Quantity - borrowedQty;
+
+                        if ((decimal)numBorrowQuantity.Value > realAvailable)
+                        {
+                            throw new Exception($"可用库存不足！当前可用库存：{realAvailable}，您要借用：{numBorrowQuantity.Value}");
+                        }
+
+                        // 创建借用记录
+                        var borrowRecord = new BorrowRecord
+                        {
+                            AssetID = _asset.AssetID,
+                            BorrowedBy = cmbBorrowedBy.Text.Trim(),
+                            BorrowedQuantity = (decimal)numBorrowQuantity.Value,
+                            BorrowedDate = dtBorrowDate.Value,
+                            ExpectedReturnDate = dtExpectedReturnDate.Value,
+                            BorrowReason = txtReason.Text.Trim(),
+                            Status = 0 // 借用中
+                        };
+
+                        var result = db.Insertable(borrowRecord).ExecuteReturnIdentity();
+
+                        if (result > 0)
+                        {
+                            // 生成出库记录
+                            CreateStockOutRecord(db, asset, (decimal)numBorrowQuantity.Value, 
+                                cmbBorrowedBy.Text.Trim(), result.ToString(), txtReason.Text.Trim());
+
+                            db.Ado.CommitTran();
+                            MessageBox.Show("资产借用成功！", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
+                        }
+                        else
+                        {
+                            throw new Exception("借用记录创建失败");
+                        }
                     }
-
-                    // 创建借用记录
-                    var borrowRecord = new BorrowRecord
+                    catch
                     {
-                        AssetID = _asset.AssetID,
-                        BorrowedBy = cmbBorrowedBy.Text.Trim(),
-                        BorrowedQuantity = (decimal)numBorrowQuantity.Value,
-                        BorrowedDate = dtBorrowDate.Value,
-                        ExpectedReturnDate = dtExpectedReturnDate.Value,
-                        BorrowReason = txtReason.Text.Trim(),
-                        Status = 0 // 借用中
-                    };
-
-                    var result = db.Insertable(borrowRecord).ExecuteReturnIdentity();
-
-                    if (result > 0)
-                    {
-                        // 生成出库记录
-                        CreateStockOutRecord(db, _asset, (decimal)numBorrowQuantity.Value, 
-                            cmbBorrowedBy.Text.Trim(), result.ToString(), txtReason.Text.Trim());
-
-                        MessageBox.Show("资产借用成功！", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.DialogResult = DialogResult.OK;
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("资产借用失败，请重试", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        db.Ado.RollbackTran();
+                        throw;
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"保存失败：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"借用失败：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

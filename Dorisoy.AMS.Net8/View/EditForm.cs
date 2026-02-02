@@ -23,6 +23,27 @@ namespace Dorisoy.AMS.view
 
             InitializeControls();
             LoadData(asset);
+            
+            // 注册快捷键
+            this.KeyPreview = true;
+            this.KeyDown += EditForm_KeyDown;
+        }
+
+        /// <summary>
+        /// 快捷键处理：Ctrl+S 保存，Esc 取消
+        /// </summary>
+        private void EditForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                e.SuppressKeyPress = true;
+                btnSave_Click(sender, e);
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                e.SuppressKeyPress = true;
+                Close();
+            }
         }
 
 
@@ -250,16 +271,67 @@ namespace Dorisoy.AMS.view
 
         private bool ValidateInput()
         {
-
-            if (string.IsNullOrWhiteSpace(txtName.Text))
+            // 资产编号校验
+            if (string.IsNullOrWhiteSpace(txtAssetID.Text))
             {
-                MessageBox.Show("资产名称不能为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("资产编号不能为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAssetID.Focus();
                 return false;
             }
 
+            // 资产编号唯一性校验（新增模式）
+            if (!_isEditMode)
+            {
+                using (var db = SqliteHelper.GetDb())
+                {
+                    var existingAsset = db.Queryable<Asset>().First(a => a.AssetID == txtAssetID.Text.Trim());
+                    if (existingAsset != null)
+                    {
+                        MessageBox.Show($"资产编号 '{txtAssetID.Text.Trim()}' 已存在，请使用不同的编号", "编号重复", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtAssetID.Focus();
+                        txtAssetID.SelectAll();
+                        return false;
+                    }
+                }
+            }
+
+            // 资产名称校验
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MessageBox.Show("资产名称不能为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtName.Focus();
+                return false;
+            }
+
+            // 数量校验
             if (numQuantity.Value <= 0)
             {
-                MessageBox.Show("数量必须大于0", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("库存数量必须大于0", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                numQuantity.Focus();
+                return false;
+            }
+
+            // 最低库存校验（不能为负数）
+            if (numMinQuantity.Value < 0)
+            {
+                MessageBox.Show("最低库存不能为负数", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                numMinQuantity.Focus();
+                return false;
+            }
+
+            // 仓库校验
+            if (cmbLocation.SelectedIndex < 0 && string.IsNullOrWhiteSpace(cmbLocation.Text))
+            {
+                MessageBox.Show("请选择或输入存放地点", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbLocation.Focus();
+                return false;
+            }
+
+            // 单位校验
+            if (string.IsNullOrWhiteSpace(txtUnit.Text))
+            {
+                MessageBox.Show("请输入单位", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUnit.Focus();
                 return false;
             }
 
