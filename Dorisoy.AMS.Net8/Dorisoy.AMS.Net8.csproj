@@ -159,6 +159,12 @@
 		<Compile Include="View\InventoryCheckForm.Designer.cs">
 			<DependentUpon>InventoryCheckForm.cs</DependentUpon>
 		</Compile>
+		<Compile Include="View\StockReportForm.cs">
+			<SubType>Form</SubType>
+		</Compile>
+		<Compile Include="View\StockReportForm.Designer.cs">
+			<DependentUpon>StockReportForm.cs</DependentUpon>
+		</Compile>
 		<Compile Include="Properties\Resources.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>
@@ -242,6 +248,9 @@
 		</EmbeddedResource>
 		<EmbeddedResource Include="View\InventoryCheckForm.resx">
 			<DependentUpon>InventoryCheckForm.cs</DependentUpon>
+		</EmbeddedResource>
+		<EmbeddedResource Include="View\StockReportForm.resx">
+			<DependentUpon>StockReportForm.cs</DependentUpon>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Properties\Resources.resx">
 			<Generator>ResXFileCodeGenerator</Generator>

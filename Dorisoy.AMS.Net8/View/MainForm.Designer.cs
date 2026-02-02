@@ -50,6 +50,8 @@
             toolStripSeparator15 = new ToolStripSeparator();
             btnInventoryCheck = new ToolStripButton();
             toolStripSeparator16 = new ToolStripSeparator();
+            btnStockReport = new ToolStripButton();
+            toolStripSeparator17 = new ToolStripSeparator();
             btnWarehouse = new ToolStripButton();
             toolStripSeparator14 = new ToolStripSeparator();
             btnManageNumber = new ToolStripButton();
@@ -92,7 +94,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdd, toolStripSeparator1, btnEdit, toolStripSeparator2, btnImport, toolStripSeparator6, btnExport, toolStripSeparator4, btnPrint, toolStripSeparator12, toolStripButton1, toolStripSeparator11, toolStripButton2, toolStripSeparator3, toolStripButton3, toolStripSeparator13, btnScrap, toolStripSeparator15, btnInventoryCheck, toolStripSeparator16, btnWarehouse, toolStripSeparator14, btnManageNumber, toolStripSeparator5, menuUserManagement, toolStripSeparator8, btnManageLog, toolStripSeparator10, btnManageData, toolStripSeparator9, btnRegistration, toolStripSeparator7, btnQuit });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdd, toolStripSeparator1, btnEdit, toolStripSeparator2, btnImport, toolStripSeparator6, btnExport, toolStripSeparator4, btnPrint, toolStripSeparator12, toolStripButton1, toolStripSeparator11, toolStripButton2, toolStripSeparator3, toolStripButton3, toolStripSeparator13, btnScrap, toolStripSeparator15, btnInventoryCheck, toolStripSeparator16, btnStockReport, toolStripSeparator17, btnWarehouse, toolStripSeparator14, btnManageNumber, toolStripSeparator5, menuUserManagement, toolStripSeparator8, btnManageLog, toolStripSeparator10, btnManageData, toolStripSeparator9, btnRegistration, toolStripSeparator7, btnQuit });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Padding = new Padding(0, 0, 2, 0);
@@ -230,6 +232,20 @@
             // 
             toolStripSeparator16.Name = "toolStripSeparator16";
             toolStripSeparator16.Size = new Size(6, 31);
+            // 
+            // btnStockReport
+            // 
+            btnStockReport.Image = Properties.Resources.记录1;
+            btnStockReport.ImageTransparentColor = Color.Magenta;
+            btnStockReport.Name = "btnStockReport";
+            btnStockReport.Size = new Size(84, 28);
+            btnStockReport.Text = "库存报表";
+            btnStockReport.Click += btnStockReport_Click;
+            // 
+            // toolStripSeparator17
+            // 
+            toolStripSeparator17.Name = "toolStripSeparator17";
+            toolStripSeparator17.Size = new Size(6, 31);
             // 
             // btnWarehouse
             // 
@@ -516,5 +532,7 @@
         private ToolStripSeparator toolStripSeparator15;
         private ToolStripButton btnInventoryCheck;
         private ToolStripSeparator toolStripSeparator16;
+        private ToolStripButton btnStockReport;
+        private ToolStripSeparator toolStripSeparator17;
     }
 }

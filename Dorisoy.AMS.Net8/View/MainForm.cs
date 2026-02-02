@@ -761,6 +761,15 @@ namespace Dorisoy.AMS.view
             LoadData();  // 盘点后刷新数据
         }
 
+        /// <summary>
+        /// 库存报表
+        /// </summary>
+        private void btnStockReport_Click(object sender, EventArgs e)
+        {
+            var form = new StockReportForm();
+            form.ShowDialog();
+        }
+
 
         // A4打印
         private void toolStripButton1_Click(object sender, EventArgs e)
