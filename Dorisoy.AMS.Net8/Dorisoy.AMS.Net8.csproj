@@ -23,6 +23,8 @@
 	<ItemGroup>
 		<!-- 数据库相关 -->
 		<PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.0" />
+		<PackageReference Include="OpenCvSharp4.Extensions" Version="4.10.0.20241108" />
+		<PackageReference Include="OpenCvSharp4.Windows" Version="4.10.0.20241108" />
 		<PackageReference Include="SqlSugarCoreNoDrive" Version="5.1.4.205" />
 
 		<!-- Excel处理 -->
@@ -39,6 +41,7 @@
 
 		<!-- 其他依赖 -->
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.14" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -165,6 +168,12 @@
 		<Compile Include="View\StockReportForm.Designer.cs">
 			<DependentUpon>StockReportForm.cs</DependentUpon>
 		</Compile>
+		<Compile Include="View\ScanBarcodeForm.cs">
+			<SubType>Form</SubType>
+		</Compile>
+		<Compile Include="View\ScanBarcodeForm.Designer.cs">
+			<DependentUpon>ScanBarcodeForm.cs</DependentUpon>
+		</Compile>
 		<Compile Include="Properties\Resources.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>
@@ -185,6 +194,7 @@
 		<Compile Include="Services\ExcelService\ExcelExporter.cs" />
 		<Compile Include="Services\ExcelService\ExcelImporter.cs" />
 		<Compile Include="Services\ExcelService\LogExcelExporter.cs" />
+		<Compile Include="Services\BarcodeService.cs" />
 		<Compile Include="Utilities\AssetNumberGenerator.cs" />
 		<Compile Include="Utilities\BackupManager.cs" />
 		<Compile Include="Utilities\LicenseManager.cs" />
@@ -256,6 +266,9 @@
 		</EmbeddedResource>
 		<EmbeddedResource Include="View\StockReportForm.resx">
 			<DependentUpon>StockReportForm.cs</DependentUpon>
+		</EmbeddedResource>
+		<EmbeddedResource Include="View\ScanBarcodeForm.resx">
+			<DependentUpon>ScanBarcodeForm.cs</DependentUpon>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Properties\Resources.resx">
 			<Generator>ResXFileCodeGenerator</Generator>

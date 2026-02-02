@@ -1,6 +1,7 @@
 using Dorisoy.AMS.models;
 using QuestPDF;
 using QuestPDF.Fluent;
+using QuestPDF.Infrastructure;
 
 namespace Dorisoy.AMS.Reports.QuestPDF
 {

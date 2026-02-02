@@ -202,5 +202,20 @@ namespace Dorisoy.AMS.view
         {
             this.Close();
         }
+
+        /// <summary>
+        /// 扫码借还
+        /// </summary>
+        private void btnScan_Click(object sender, EventArgs e)
+        {
+            var form = new ScanBarcodeForm();
+            form.ShowDialog();
+
+            // 如果有操作，刷新列表
+            if (form.HasOperation)
+            {
+                LoadData();
+            }
+        }
     }
 }

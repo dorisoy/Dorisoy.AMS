@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+
 namespace AssetManageRregister
 {
     public partial class RegistrationForm : Form
@@ -20,19 +15,17 @@ namespace AssetManageRregister
             this.StartPosition = FormStartPosition.CenterScreen;
             //MachineCode = Dorisoy.AMS.Utilities.LicenseManager.GenerateMachineCode();
             //txtMachineCode.Text = MachineCode;
-
         }
-
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            // 关闭窗口
             Close();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-
-
+            // 生成注册码
             if (!string.IsNullOrEmpty(txtMachineCode.Text))
             {
                 string registrationCode = LicenseManager.GenerateRegistrationCode(txtMachineCode.Text);
@@ -44,8 +37,6 @@ namespace AssetManageRregister
             {
                 MessageBox.Show("机器码文本框不能为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        
         }
     }
-
 }

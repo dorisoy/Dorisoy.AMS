@@ -1,4 +1,5 @@
 using Dorisoy.AMS.models;
+using Dorisoy.AMS.services;
 using Dorisoy.AMS.services.ExcelService;
 using Dorisoy.AMS.Utilities;
 using FastReport;
@@ -271,13 +272,25 @@ namespace Dorisoy.AMS.view
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.Columns.Clear();
 
+            // 序号列
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "colIndex",
                 HeaderText = "序号",
-                Width = 60,
-                ReadOnly = true  // 设置为只读
+                Width = 50,
+                ReadOnly = true
             });
+
+            // 条码缩略图列（第一列）
+            var barcodeColumn = new DataGridViewImageColumn
+            {
+                Name = "colBarcode",
+                HeaderText = "条码",
+                Width = 100,
+                ImageLayout = DataGridViewImageCellLayout.Zoom,
+                ReadOnly = true
+            };
+            dataGridView1.Columns.Add(barcodeColumn);
 
             var columns = new[]
             {
@@ -305,15 +318,33 @@ namespace Dorisoy.AMS.view
             }).ToArray());
 
             dataGridView1.Font = new System.Drawing.Font("微软雅黑", 9);
+            dataGridView1.RowTemplate.Height = 40;  // 设置行高以适应条码显示
 
-            //生成序号
+            //生成序号和条码
             dataGridView1.DataBindingComplete += (sender, e) =>
             {
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    if (!row.IsNewRow)
+                    if (!row.IsNewRow && row.DataBoundItem != null)
                     {
+                        // 生成序号
                         row.Cells["colIndex"].Value = row.Index + 1;
+
+                        // 生成条码缩略图
+                        try
+                        {
+                            dynamic item = row.DataBoundItem;
+                            string assetId = item.AssetID;
+                            if (!string.IsNullOrEmpty(assetId))
+                            {
+                                var barcode = BarcodeService.GenerateBarcodeThumbnail(assetId, 90, 35);
+                                row.Cells["colBarcode"].Value = barcode;
+                            }
+                        }
+                        catch
+                        {
+                            // 忽略条码生成错误
+                        }
                     }
                 }
             };

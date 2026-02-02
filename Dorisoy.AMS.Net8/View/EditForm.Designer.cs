@@ -54,8 +54,12 @@
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.grpBarcode = new System.Windows.Forms.GroupBox();
+            this.picBarcode = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMinQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBarcode)).BeginInit();
+            this.grpBarcode.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -287,11 +291,33 @@
             this.cmbStatus.Size = new System.Drawing.Size(171, 20);
             this.cmbStatus.TabIndex = 28;
             // 
+            // grpBarcode
+            // 
+            this.grpBarcode.Controls.Add(this.picBarcode);
+            this.grpBarcode.Location = new System.Drawing.Point(280, 12);
+            this.grpBarcode.Name = "grpBarcode";
+            this.grpBarcode.Size = new System.Drawing.Size(200, 120);
+            this.grpBarcode.TabIndex = 31;
+            this.grpBarcode.TabStop = false;
+            this.grpBarcode.Text = "资产条码";
+            // 
+            // picBarcode
+            // 
+            this.picBarcode.BackColor = System.Drawing.Color.White;
+            this.picBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBarcode.Location = new System.Drawing.Point(3, 17);
+            this.picBarcode.Name = "picBarcode";
+            this.picBarcode.Size = new System.Drawing.Size(194, 100);
+            this.picBarcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBarcode.TabIndex = 0;
+            this.picBarcode.TabStop = false;
+            // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 466);
+            this.ClientSize = new System.Drawing.Size(500, 466);
+            this.Controls.Add(this.grpBarcode);
             this.Controls.Add(this.numMinQuantity);
             this.Controls.Add(this.lblMinQuantity);
             this.Controls.Add(this.cmbStatus);
@@ -323,6 +349,8 @@
             this.Text = "EditForm";
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMinQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBarcode)).EndInit();
+            this.grpBarcode.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,5 +384,7 @@
         private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.Label lblMinQuantity;
         private System.Windows.Forms.NumericUpDown numMinQuantity;
+        private System.Windows.Forms.GroupBox grpBarcode;
+        private System.Windows.Forms.PictureBox picBarcode;
     }
 }

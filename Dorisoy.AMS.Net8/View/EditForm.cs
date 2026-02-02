@@ -1,4 +1,5 @@
 ﻿using Dorisoy.AMS.models;
+using Dorisoy.AMS.services;
 using Dorisoy.AMS.Utilities;
 using Newtonsoft.Json;
 using SqlSugar;
@@ -51,6 +52,7 @@ namespace Dorisoy.AMS.view
         private void InitializeControls()
         {
             txtName.Leave += TxtName_Leave;
+            txtAssetID.TextChanged += TxtAssetID_TextChanged;  // 资产编号变化时更新条码
             cmbStatus.DataSource = StatusConfig.BusinessStatusOptions;
             cmbStatus.DisplayMember = "Name";
             cmbStatus.ValueMember = "Code";
@@ -109,6 +111,9 @@ namespace Dorisoy.AMS.view
             
             // 编辑模式下禁用库存数量编辑（已入库后不能修改，否则库存逻辑会出错）
             numQuantity.Enabled = !_isEditMode;
+
+            // 初始化条码显示
+            UpdateBarcodeDisplay();
         }
 
         private async void TxtName_Leave(object sender, EventArgs e)
@@ -127,6 +132,51 @@ namespace Dorisoy.AMS.view
             catch (Exception ex)
             {
                 txtAssetID.Text = $"生成失败: {ex.Message}";
+            }
+        }
+
+        /// <summary>
+        /// 资产编号变化时更新条码显示
+        /// </summary>
+        private void TxtAssetID_TextChanged(object? sender, EventArgs e)
+        {
+            UpdateBarcodeDisplay();
+        }
+
+        /// <summary>
+        /// 更新条码显示
+        /// </summary>
+        private void UpdateBarcodeDisplay()
+        {
+            try
+            {
+                var assetId = txtAssetID.Text?.Trim();
+                
+                // 清空旧图片
+                if (picBarcode.Image != null)
+                {
+                    picBarcode.Image.Dispose();
+                    picBarcode.Image = null;
+                }
+
+                // 如果资产编号为空或无效，不生成条码
+                if (string.IsNullOrEmpty(assetId) || 
+                    assetId.Contains("生成中") || 
+                    assetId.Contains("失败"))
+                {
+                    grpBarcode.Text = "资产条码";
+                    return;
+                }
+
+                // 生成条码图片
+                var barcode = BarcodeService.GenerateBarcode(assetId, 180, 80);
+                picBarcode.Image = barcode;
+                grpBarcode.Text = $"资产条码: {assetId}";
+            }
+            catch
+            {
+                // 忽略条码生成错误
+                grpBarcode.Text = "资产条码";
             }
         }
 

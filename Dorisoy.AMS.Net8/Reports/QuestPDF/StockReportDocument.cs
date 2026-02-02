@@ -125,18 +125,18 @@ namespace Dorisoy.AMS.Reports.QuestPDF
                 // 表头
                 table.Header(header =>
                 {
-                    header.Cell().Element(HeaderCellStyle).Text("序号").Style(HeaderTextStyle);
-                    header.Cell().Element(HeaderCellStyle).Text("资产编号").Style(HeaderTextStyle);
-                    header.Cell().Element(HeaderCellStyle).Text("类别").Style(HeaderTextStyle);
-                    header.Cell().Element(HeaderCellStyle).Text("资产名称").Style(HeaderTextStyle);
-                    header.Cell().Element(HeaderCellStyle).Text("规格型号").Style(HeaderTextStyle);
-                    header.Cell().Element(HeaderCellStyle).Text("所在仓库").Style(HeaderTextStyle);
-                    header.Cell().Element(HeaderCellStyle).Text("总库存").Style(HeaderTextStyle);
-                    header.Cell().Element(HeaderCellStyle).Text("最低库存").Style(HeaderTextStyle);
-                    header.Cell().Element(HeaderCellStyle).Text("可用库存").Style(HeaderTextStyle);
-                    header.Cell().Element(HeaderCellStyle).Text("借出").Style(HeaderTextStyle);
-                    header.Cell().Element(HeaderCellStyle).Text("单位").Style(HeaderTextStyle);
-                    header.Cell().Element(HeaderCellStyle).Text("状态").Style(HeaderTextStyle);
+                    header.Cell().Element(HeaderCellStyle).Text("序号").FontSize(9).Bold().FontColor(Colors.White);
+                    header.Cell().Element(HeaderCellStyle).Text("资产编号").FontSize(9).Bold().FontColor(Colors.White);
+                    header.Cell().Element(HeaderCellStyle).Text("类别").FontSize(9).Bold().FontColor(Colors.White);
+                    header.Cell().Element(HeaderCellStyle).Text("资产名称").FontSize(9).Bold().FontColor(Colors.White);
+                    header.Cell().Element(HeaderCellStyle).Text("规格型号").FontSize(9).Bold().FontColor(Colors.White);
+                    header.Cell().Element(HeaderCellStyle).Text("所在仓库").FontSize(9).Bold().FontColor(Colors.White);
+                    header.Cell().Element(HeaderCellStyle).Text("总库存").FontSize(9).Bold().FontColor(Colors.White);
+                    header.Cell().Element(HeaderCellStyle).Text("最低库存").FontSize(9).Bold().FontColor(Colors.White);
+                    header.Cell().Element(HeaderCellStyle).Text("可用库存").FontSize(9).Bold().FontColor(Colors.White);
+                    header.Cell().Element(HeaderCellStyle).Text("借出").FontSize(9).Bold().FontColor(Colors.White);
+                    header.Cell().Element(HeaderCellStyle).Text("单位").FontSize(9).Bold().FontColor(Colors.White);
+                    header.Cell().Element(HeaderCellStyle).Text("状态").FontSize(9).Bold().FontColor(Colors.White);
                 });
 
                 // 数据行
@@ -162,12 +162,6 @@ namespace Dorisoy.AMS.Reports.QuestPDF
                     table.Cell().Element(cellStyle).AlignCenter().Text(item.StatusName).FontSize(9);
                 }
             });
-        }
-
-        // 辅助方法：应用文本样式
-        private static void HeaderTextStyle(TextSpanDescriptor text)
-        {
-            text.FontSize(9).Bold().FontColor(Colors.White);
         }
     }
 }

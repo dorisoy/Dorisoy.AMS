@@ -18,6 +18,7 @@ namespace Dorisoy.AMS.view
             panel1 = new Panel();
             btnAdd = new Button();
             btnReturn = new Button();
+            btnScan = new Button();
             btnClose = new Button();
             splitContainer1 = new SplitContainer();
             groupBox1 = new GroupBox();
@@ -37,6 +38,7 @@ namespace Dorisoy.AMS.view
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnScan);
             panel1.Controls.Add(btnAdd);
             panel1.Controls.Add(btnReturn);
             panel1.Controls.Add(btnClose);
@@ -65,6 +67,16 @@ namespace Dorisoy.AMS.view
             btnReturn.Text = "归还";
             btnReturn.UseVisualStyleBackColor = true;
             btnReturn.Click += btnReturn_Click;
+            // 
+            // btnScan
+            // 
+            btnScan.Location = new Point(182, 7);
+            btnScan.Name = "btnScan";
+            btnScan.Size = new Size(85, 27);
+            btnScan.TabIndex = 3;
+            btnScan.Text = "📷 扫码";
+            btnScan.UseVisualStyleBackColor = true;
+            btnScan.Click += btnScan_Click;
             // 
             // btnClose
             // 
@@ -169,6 +181,7 @@ namespace Dorisoy.AMS.view
         private Panel panel1;
         private Button btnAdd;
         private Button btnReturn;
+        private Button btnScan;
         private Button btnClose;
         private SplitContainer splitContainer1;
         private GroupBox groupBox1;
