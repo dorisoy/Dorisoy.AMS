@@ -126,6 +126,35 @@ namespace Dorisoy.AMS.view
         }
 
         /// <summary>
+        /// 自动盘点：一键将实际盘点数量填充为系统库存（即无差异）
+        /// </summary>
+        private void btnAutoCheck_Click(object sender, EventArgs e)
+        {
+            if (_checkItems.Count == 0)
+            {
+                MessageBox.Show("没有可盘点的资产！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var result = MessageBox.Show(
+                "自动盘点将把所有资产的“实际盘点”数量设置为“系统库存”，\n表示实际库存与系统记录一致。\n\n是否继续？",
+                "自动盘点",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes) return;
+
+            foreach (var item in _checkItems)
+            {
+                item.ActualQuantity = item.SystemQuantity;
+                item.Difference = 0;
+            }
+
+            dataGridView1.Refresh();
+            MessageBox.Show($"已自动填充 {_checkItems.Count} 条资产的盘点数量！", "自动盘点完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        /// <summary>
         /// 仓库选择改变
         /// </summary>
         private void cmbWarehouse_SelectedIndexChanged(object sender, EventArgs e)

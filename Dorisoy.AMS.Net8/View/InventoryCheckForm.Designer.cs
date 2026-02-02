@@ -40,6 +40,7 @@ namespace Dorisoy.AMS.view
             this.lblWarehouse = new System.Windows.Forms.Label();
             this.cmbWarehouse = new System.Windows.Forms.ComboBox();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnAutoCheck = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
@@ -130,6 +131,7 @@ namespace Dorisoy.AMS.view
             this.panel1.Controls.Add(this.lblInfo);
             this.panel1.Controls.Add(this.lblWarehouse);
             this.panel1.Controls.Add(this.cmbWarehouse);
+            this.panel1.Controls.Add(this.btnAutoCheck);
             this.panel1.Controls.Add(this.btnRefresh);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -166,6 +168,17 @@ namespace Dorisoy.AMS.view
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // btnAutoCheck
+            // 
+            this.btnAutoCheck.BackColor = System.Drawing.Color.LightGreen;
+            this.btnAutoCheck.Location = new System.Drawing.Point(345, 9);
+            this.btnAutoCheck.Name = "btnAutoCheck";
+            this.btnAutoCheck.Size = new System.Drawing.Size(85, 25);
+            this.btnAutoCheck.TabIndex = 4;
+            this.btnAutoCheck.Text = "自动盘点";
+            this.btnAutoCheck.UseVisualStyleBackColor = false;
+            this.btnAutoCheck.Click += new System.EventHandler(this.btnAutoCheck_Click);
+            // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -192,7 +205,7 @@ namespace Dorisoy.AMS.view
             // 
             this.lblInfo.AutoSize = true;
             this.lblInfo.ForeColor = System.Drawing.Color.Gray;
-            this.lblInfo.Location = new System.Drawing.Point(350, 15);
+            this.lblInfo.Location = new System.Drawing.Point(440, 15);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(389, 12);
             this.lblInfo.TabIndex = 3;
@@ -231,6 +244,7 @@ namespace Dorisoy.AMS.view
         private System.Windows.Forms.Label lblWarehouse;
         private System.Windows.Forms.ComboBox cmbWarehouse;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnAutoCheck;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblInfo;
