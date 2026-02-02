@@ -35,6 +35,8 @@ namespace Dorisoy.AMS.view
             cmbStatus.ValueMember = "Code";
             // 加载使用人列表
             LoadUserList();
+            // 加载仓库列表
+            LoadWarehouseList();
         }
 
         private void LoadData(Asset asset)
@@ -53,7 +55,15 @@ namespace Dorisoy.AMS.view
             txtAssetID.Text = _asset.AssetID;
             txtName.Text = _asset.Name;
             txtModel.Text = _asset.Model;
-            txtLocation.Text = _asset.Location;
+            // 设置仓库选择
+            if (_asset.WarehouseId > 0)
+            {
+                cmbLocation.SelectedValue = _asset.WarehouseId;
+            }
+            else if (!string.IsNullOrEmpty(_asset.Location))
+            {
+                cmbLocation.Text = _asset.Location;
+            }
             cmbUser.SelectedItem = _asset.User; // 改为下拉框
             txtRemark.Text = _asset.Remark;
             cmbStatus.SelectedValue = _asset.Status;
@@ -190,6 +200,49 @@ namespace Dorisoy.AMS.view
             }
         }
 
+        /// <summary>
+        /// 加载仓库列表
+        /// </summary>
+        private void LoadWarehouseList()
+        {
+            try
+            {
+                using (var db = SqliteHelper.GetDb())
+                {
+                    // 获取所有正常状态的仓库
+                    var warehouses = db.Queryable<Warehouse>()
+                        .Where(w => w.Status == 0)
+                        .OrderBy(w => w.Code)
+                        .ToList();
+
+                    // 配置cmbLocation支持下拉选择
+                    cmbLocation.DropDownStyle = ComboBoxStyle.DropDown;
+                    cmbLocation.AutoCompleteSource = AutoCompleteSource.ListItems;
+                    cmbLocation.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
+                    // 绑定数据源
+                    cmbLocation.DisplayMember = "Name";
+                    cmbLocation.ValueMember = "Id";
+                    cmbLocation.DataSource = warehouses;
+
+                    // 设置默认选中项
+                    if (_isEditMode && _asset.WarehouseId > 0)
+                    {
+                        cmbLocation.SelectedValue = _asset.WarehouseId;
+                    }
+                    else
+                    {
+                        cmbLocation.SelectedIndex = warehouses.Count > 0 ? 0 : -1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"获取仓库列表失败：{ex.Message}");
+                cmbLocation.DataSource = new List<Warehouse>();
+            }
+        }
+
         private bool ValidateInput()
         {
 
@@ -235,7 +288,20 @@ namespace Dorisoy.AMS.view
                 _asset.Model = txtModel.Text;
                 _asset.Quantity = (int)numQuantity.Value;
                 _asset.Unit = txtUnit.Text.Trim();
-                _asset.Location = txtLocation.Text.Trim();
+                
+                // 保存仓库关联
+                if (cmbLocation.SelectedValue != null && cmbLocation.SelectedValue is int warehouseId)
+                {
+                    _asset.WarehouseId = warehouseId;
+                    var selectedWarehouse = cmbLocation.SelectedItem as Warehouse;
+                    _asset.Location = selectedWarehouse?.Name ?? cmbLocation.Text.Trim();
+                }
+                else
+                {
+                    _asset.WarehouseId = 0;
+                    _asset.Location = cmbLocation.Text.Trim();
+                }
+                
                 _asset.Department = department;
                 _asset.User = cmbUser.Text.Trim(); // 改为下拉框中的选中值
                 _asset.Remark = txtRemark.Text.Trim();
@@ -353,7 +419,20 @@ namespace Dorisoy.AMS.view
             _asset.Model = txtModel.Text;
             _asset.Quantity = (int)numQuantity.Value;
             _asset.Unit = txtUnit.Text;
-            _asset.Location = txtLocation.Text;
+            
+            // 更新仓库关联
+            if (cmbLocation.SelectedValue != null && cmbLocation.SelectedValue is int warehouseId)
+            {
+                _asset.WarehouseId = warehouseId;
+                var selectedWarehouse = cmbLocation.SelectedItem as Warehouse;
+                _asset.Location = selectedWarehouse?.Name ?? cmbLocation.Text;
+            }
+            else
+            {
+                _asset.WarehouseId = 0;
+                _asset.Location = cmbLocation.Text;
+            }
+            
             _asset.Department = cmbDepartment.Text;
             _asset.User = cmbUser.Text; // 改为下拉框
             _asset.Remark = txtRemark.Text;

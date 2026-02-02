@@ -67,6 +67,7 @@ namespace Dorisoy.AMS.view
             btnManageNumber.Enabled = user.CanManageNumber;
             btnManageLog.Enabled = user.CanManageLog;
             btnManageData.Enabled = user.CanManageData;
+            btnWarehouse.Enabled = user.CanManageWarehouse || user.IsAdmin;
             menuUserManagement.Visible = user.IsAdmin;
 
         }
@@ -581,6 +582,15 @@ namespace Dorisoy.AMS.view
             new BackupForm().ShowDialog();
         }
 
+        /// <summary>
+        /// 仓库管理
+        /// </summary>
+        private void btnWarehouse_Click(object sender, EventArgs e)
+        {
+            var form = new WarehouseForm();
+            form.ShowDialog();
+        }
+
 
         // A4打印
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -728,7 +738,8 @@ namespace Dorisoy.AMS.view
         /// <param name="e"></param>
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-          
+            var form = new StockRecordsForm();
+            form.ShowDialog();
         }
     }
 

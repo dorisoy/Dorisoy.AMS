@@ -43,6 +43,9 @@ namespace Dorisoy.AMS.models
         [DisplayName("管理数据库")]
         public bool CanManageData { get; set; }
 
+        [DisplayName("管理仓库")]
+        public bool CanManageWarehouse { get; set; }
+
         [DisplayName("管理员")]
         public bool IsAdmin { get; set; }
     }

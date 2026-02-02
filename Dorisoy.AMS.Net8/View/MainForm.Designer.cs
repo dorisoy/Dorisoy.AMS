@@ -46,6 +46,8 @@
             toolStripSeparator3 = new ToolStripSeparator();
             toolStripButton3 = new ToolStripButton();
             toolStripSeparator13 = new ToolStripSeparator();
+            btnWarehouse = new ToolStripButton();
+            toolStripSeparator14 = new ToolStripSeparator();
             btnManageNumber = new ToolStripButton();
             toolStripSeparator5 = new ToolStripSeparator();
             menuUserManagement = new ToolStripButton();
@@ -79,18 +81,18 @@
             toolStripButton1.Image = Properties.Resources.打印;
             toolStripButton1.ImageTransparentColor = Color.Magenta;
             toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(121, 35);
+            toolStripButton1.Size = new Size(75, 28);
             toolStripButton1.Text = "打印A4";
             toolStripButton1.Click += toolStripButton1_Click;
             // 
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdd, toolStripSeparator1, btnEdit, toolStripSeparator2, btnImport, toolStripSeparator6, btnExport, toolStripSeparator4, btnPrint, toolStripSeparator12, toolStripButton1, toolStripSeparator11, toolStripButton2, toolStripSeparator3, toolStripButton3, toolStripSeparator13, btnManageNumber, toolStripSeparator5, menuUserManagement, toolStripSeparator8, btnManageLog, toolStripSeparator10, btnManageData, toolStripSeparator9, btnRegistration, toolStripSeparator7, btnQuit });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdd, toolStripSeparator1, btnEdit, toolStripSeparator2, btnImport, toolStripSeparator6, btnExport, toolStripSeparator4, btnPrint, toolStripSeparator12, toolStripButton1, toolStripSeparator11, toolStripButton2, toolStripSeparator3, toolStripButton3, toolStripSeparator13, btnWarehouse, toolStripSeparator14, btnManageNumber, toolStripSeparator5, menuUserManagement, toolStripSeparator8, btnManageLog, toolStripSeparator10, btnManageData, toolStripSeparator9, btnRegistration, toolStripSeparator7, btnQuit });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Padding = new Padding(0, 0, 5, 0);
-            toolStrip1.Size = new Size(2961, 41);
+            toolStrip1.Padding = new Padding(0, 0, 2, 0);
+            toolStrip1.Size = new Size(1480, 31);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -99,198 +101,212 @@
             btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
             btnAdd.ImageTransparentColor = Color.Magenta;
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(90, 35);
+            btnAdd.Size = new Size(60, 28);
             btnAdd.Text = "添加";
             btnAdd.Click += btnAdd_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 41);
+            toolStripSeparator1.Size = new Size(6, 31);
             // 
             // btnEdit
             // 
             btnEdit.Image = (Image)resources.GetObject("btnEdit.Image");
             btnEdit.ImageTransparentColor = Color.Magenta;
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(90, 35);
+            btnEdit.Size = new Size(60, 28);
             btnEdit.Text = "编辑";
             btnEdit.Click += btnEdit_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 41);
+            toolStripSeparator2.Size = new Size(6, 31);
             // 
             // btnImport
             // 
             btnImport.Image = (Image)resources.GetObject("btnImport.Image");
             btnImport.ImageTransparentColor = Color.Magenta;
             btnImport.Name = "btnImport";
-            btnImport.Size = new Size(90, 35);
+            btnImport.Size = new Size(60, 28);
             btnImport.Text = "导入";
             btnImport.Click += btnImport_Click;
             // 
             // toolStripSeparator6
             // 
             toolStripSeparator6.Name = "toolStripSeparator6";
-            toolStripSeparator6.Size = new Size(6, 41);
+            toolStripSeparator6.Size = new Size(6, 31);
             // 
             // btnExport
             // 
             btnExport.Image = (Image)resources.GetObject("btnExport.Image");
             btnExport.ImageTransparentColor = Color.Magenta;
             btnExport.Name = "btnExport";
-            btnExport.Size = new Size(90, 35);
+            btnExport.Size = new Size(60, 28);
             btnExport.Text = "导出";
             btnExport.Click += btnExport_Click;
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(6, 41);
+            toolStripSeparator4.Size = new Size(6, 31);
             // 
             // btnPrint
             // 
             btnPrint.Image = (Image)resources.GetObject("btnPrint.Image");
             btnPrint.ImageTransparentColor = Color.Magenta;
             btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(90, 35);
+            btnPrint.Size = new Size(60, 28);
             btnPrint.Text = "打印";
             btnPrint.Click += btnPrint_Click;
             // 
             // toolStripSeparator12
             // 
             toolStripSeparator12.Name = "toolStripSeparator12";
-            toolStripSeparator12.Size = new Size(6, 41);
+            toolStripSeparator12.Size = new Size(6, 31);
             // 
             // toolStripSeparator11
             // 
             toolStripSeparator11.Name = "toolStripSeparator11";
-            toolStripSeparator11.Size = new Size(6, 41);
+            toolStripSeparator11.Size = new Size(6, 31);
             // 
             // toolStripButton2
             // 
             toolStripButton2.Image = Properties.Resources.借还;
             toolStripButton2.ImageTransparentColor = Color.Magenta;
             toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(138, 35);
+            toolStripButton2.Size = new Size(84, 28);
             toolStripButton2.Text = "借还登记";
             toolStripButton2.Click += toolStripButton2_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(6, 41);
+            toolStripSeparator3.Size = new Size(6, 31);
             // 
             // toolStripButton3
             // 
             toolStripButton3.Image = Properties.Resources.记录1;
             toolStripButton3.ImageTransparentColor = Color.Magenta;
             toolStripButton3.Name = "toolStripButton3";
-            toolStripButton3.Size = new Size(138, 35);
+            toolStripButton3.Size = new Size(84, 28);
             toolStripButton3.Text = "库存记录";
             toolStripButton3.Click += toolStripButton3_Click;
             // 
             // toolStripSeparator13
             // 
             toolStripSeparator13.Name = "toolStripSeparator13";
-            toolStripSeparator13.Size = new Size(6, 41);
+            toolStripSeparator13.Size = new Size(6, 31);
+            // 
+            // btnWarehouse
+            // 
+            btnWarehouse.Image = Properties.Resources.记录1;
+            btnWarehouse.ImageTransparentColor = Color.Magenta;
+            btnWarehouse.Name = "btnWarehouse";
+            btnWarehouse.Size = new Size(84, 28);
+            btnWarehouse.Text = "仓库管理";
+            btnWarehouse.Click += btnWarehouse_Click;
+            // 
+            // toolStripSeparator14
+            // 
+            toolStripSeparator14.Name = "toolStripSeparator14";
+            toolStripSeparator14.Size = new Size(6, 31);
             // 
             // btnManageNumber
             // 
             btnManageNumber.Image = (Image)resources.GetObject("btnManageNumber.Image");
             btnManageNumber.ImageTransparentColor = Color.Magenta;
             btnManageNumber.Name = "btnManageNumber";
-            btnManageNumber.Size = new Size(138, 35);
+            btnManageNumber.Size = new Size(84, 28);
             btnManageNumber.Text = "编号设置";
             btnManageNumber.Click += btnManageNumber_Click;
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(6, 41);
+            toolStripSeparator5.Size = new Size(6, 31);
             // 
             // menuUserManagement
             // 
             menuUserManagement.Image = (Image)resources.GetObject("menuUserManagement.Image");
             menuUserManagement.ImageTransparentColor = Color.Magenta;
             menuUserManagement.Name = "menuUserManagement";
-            menuUserManagement.Size = new Size(138, 35);
+            menuUserManagement.Size = new Size(84, 28);
             menuUserManagement.Text = "用户管理";
             menuUserManagement.Click += menuUserManagement_Click;
             // 
             // toolStripSeparator8
             // 
             toolStripSeparator8.Name = "toolStripSeparator8";
-            toolStripSeparator8.Size = new Size(6, 41);
+            toolStripSeparator8.Size = new Size(6, 31);
             // 
             // btnManageLog
             // 
             btnManageLog.Image = (Image)resources.GetObject("btnManageLog.Image");
             btnManageLog.ImageTransparentColor = Color.Magenta;
             btnManageLog.Name = "btnManageLog";
-            btnManageLog.Size = new Size(90, 35);
+            btnManageLog.Size = new Size(60, 28);
             btnManageLog.Text = "日志";
             btnManageLog.Click += btnManageLog_Click;
             // 
             // toolStripSeparator10
             // 
             toolStripSeparator10.Name = "toolStripSeparator10";
-            toolStripSeparator10.Size = new Size(6, 41);
+            toolStripSeparator10.Size = new Size(6, 31);
             // 
             // btnManageData
             // 
             btnManageData.Image = (Image)resources.GetObject("btnManageData.Image");
             btnManageData.ImageTransparentColor = Color.Magenta;
             btnManageData.Name = "btnManageData";
-            btnManageData.Size = new Size(162, 35);
+            btnManageData.Size = new Size(96, 28);
             btnManageData.Text = "数据库管理";
             btnManageData.Click += btnManageData_Click;
             // 
             // toolStripSeparator9
             // 
             toolStripSeparator9.Name = "toolStripSeparator9";
-            toolStripSeparator9.Size = new Size(6, 41);
+            toolStripSeparator9.Size = new Size(6, 31);
             // 
             // btnRegistration
             // 
             btnRegistration.Image = (Image)resources.GetObject("btnRegistration.Image");
             btnRegistration.ImageTransparentColor = Color.Magenta;
             btnRegistration.Name = "btnRegistration";
-            btnRegistration.Size = new Size(138, 35);
+            btnRegistration.Size = new Size(84, 28);
             btnRegistration.Text = "注册信息";
             btnRegistration.Click += btnRegistration_Click;
             // 
             // toolStripSeparator7
             // 
             toolStripSeparator7.Name = "toolStripSeparator7";
-            toolStripSeparator7.Size = new Size(6, 41);
+            toolStripSeparator7.Size = new Size(6, 31);
             // 
             // btnQuit
             // 
             btnQuit.Image = (Image)resources.GetObject("btnQuit.Image");
             btnQuit.ImageTransparentColor = Color.Magenta;
             btnQuit.Name = "btnQuit";
-            btnQuit.Size = new Size(138, 35);
+            btnQuit.Size = new Size(84, 28);
             btnQuit.Text = "退出系统";
             btnQuit.Click += btnQuit_Click;
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(7, 10);
-            txtSearch.Margin = new Padding(7, 8, 7, 8);
+            txtSearch.Location = new Point(4, 5);
+            txtSearch.Margin = new Padding(4, 4, 4, 4);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(401, 38);
+            txtSearch.Size = new Size(202, 23);
             txtSearch.TabIndex = 2;
             txtSearch.KeyDown += txtSearch_KeyDown;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(427, 8);
-            btnSearch.Margin = new Padding(7, 8, 7, 8);
+            btnSearch.Location = new Point(214, 4);
+            btnSearch.Margin = new Padding(4, 4, 4, 4);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(175, 59);
+            btnSearch.Size = new Size(88, 32);
             btnSearch.TabIndex = 4;
             btnSearch.Text = "搜索";
             btnSearch.UseVisualStyleBackColor = true;
@@ -300,40 +316,40 @@
             // 
             cmbDepartment.FormattingEnabled = true;
             cmbDepartment.Items.AddRange(new object[] { "全部部门", "行政部", "财务部", "研发中心" });
-            cmbDepartment.Location = new Point(754, 10);
-            cmbDepartment.Margin = new Padding(7, 8, 7, 8);
+            cmbDepartment.Location = new Point(377, 5);
+            cmbDepartment.Margin = new Padding(4, 4, 4, 4);
             cmbDepartment.Name = "cmbDepartment";
-            cmbDepartment.Size = new Size(277, 39);
+            cmbDepartment.Size = new Size(140, 25);
             cmbDepartment.TabIndex = 7;
             cmbDepartment.SelectedIndexChanged += cmbDepartment_SelectedIndexChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(616, 21);
-            label1.Margin = new Padding(7, 0, 7, 0);
+            label1.Location = new Point(308, 12);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(110, 31);
+            label1.Size = new Size(56, 17);
             label1.TabIndex = 8;
             label1.Text = "选择部门";
             // 
             // cmbStatus
             // 
             cmbStatus.FormattingEnabled = true;
-            cmbStatus.Location = new Point(1258, 10);
-            cmbStatus.Margin = new Padding(7, 8, 7, 8);
+            cmbStatus.Location = new Point(629, 5);
+            cmbStatus.Margin = new Padding(4, 4, 4, 4);
             cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(277, 39);
+            cmbStatus.Size = new Size(140, 25);
             cmbStatus.TabIndex = 9;
             cmbStatus.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(1083, 21);
-            label2.Margin = new Padding(7, 0, 7, 0);
+            label2.Location = new Point(542, 12);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(110, 31);
+            label2.Size = new Size(56, 17);
             label2.TabIndex = 10;
             label2.Text = "资产状态";
             // 
@@ -341,12 +357,12 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(7, 8);
-            dataGridView1.Margin = new Padding(7, 8, 7, 8);
+            dataGridView1.Location = new Point(4, 4);
+            dataGridView1.Margin = new Padding(4, 4, 4, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 23;
-            dataGridView1.Size = new Size(2947, 1669);
+            dataGridView1.Size = new Size(1472, 496);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             // 
@@ -356,29 +372,29 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(dataGridView1, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 126);
-            tableLayoutPanel1.Margin = new Padding(7, 8, 7, 8);
+            tableLayoutPanel1.Location = new Point(0, 78);
+            tableLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 1646F));
-            tableLayoutPanel1.Size = new Size(2961, 1685);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 924F));
+            tableLayoutPanel1.Size = new Size(1480, 504);
             tableLayoutPanel1.TabIndex = 11;
             // 
             // tableLayoutPanel2
             // 
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 47F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 24F));
             tableLayoutPanel2.Controls.Add(panel1, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Top;
-            tableLayoutPanel2.Location = new Point(0, 41);
-            tableLayoutPanel2.Margin = new Padding(7, 8, 7, 8);
+            tableLayoutPanel2.Location = new Point(0, 31);
+            tableLayoutPanel2.Margin = new Padding(4, 4, 4, 4);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
-            tableLayoutPanel2.Size = new Size(2961, 85);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
+            tableLayoutPanel2.Size = new Size(1480, 47);
             tableLayoutPanel2.TabIndex = 12;
             // 
             // panel1
@@ -390,25 +406,25 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(cmbDepartment);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(7, 8);
-            panel1.Margin = new Padding(7, 8, 7, 8);
+            panel1.Location = new Point(4, 4);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(2947, 69);
+            panel1.Size = new Size(1472, 39);
             panel1.TabIndex = 0;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(14F, 31F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2961, 1811);
+            ClientSize = new Size(1480, 582);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(toolStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(7, 8, 7, 8);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Dorisoy.AMS 设备管理系统";
+            Text = "Dorisoy.AMS 低值易耗品管理系统";
             WindowState = FormWindowState.Maximized;
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
@@ -462,5 +478,7 @@
         private ToolStripButton toolStripButton3;
         private ToolStripSeparator toolStripSeparator12;
         private ToolStripSeparator toolStripSeparator13;
+        private ToolStripButton btnWarehouse;
+        private ToolStripSeparator toolStripSeparator14;
     }
 }

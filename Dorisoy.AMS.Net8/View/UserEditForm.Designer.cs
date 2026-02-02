@@ -43,6 +43,7 @@
             btnCancel = new Button();
             chkManageLog = new CheckBox();
             chkManageData = new CheckBox();
+            chkManageWarehouse = new CheckBox();
             SuspendLayout();
             // 
             // txtUsername
@@ -202,11 +203,23 @@
             chkManageData.Text = "管理数据库";
             chkManageData.UseVisualStyleBackColor = true;
             // 
+            // chkManageWarehouse
+            // 
+            chkManageWarehouse.AutoSize = true;
+            chkManageWarehouse.Location = new Point(140, 349);
+            chkManageWarehouse.Margin = new Padding(4, 4, 4, 4);
+            chkManageWarehouse.Name = "chkManageWarehouse";
+            chkManageWarehouse.Size = new Size(87, 21);
+            chkManageWarehouse.TabIndex = 15;
+            chkManageWarehouse.Text = "仓库管理";
+            chkManageWarehouse.UseVisualStyleBackColor = true;
+            // 
             // UserEditForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(321, 493);
+            Controls.Add(chkManageWarehouse);
             Controls.Add(chkManageData);
             Controls.Add(chkManageLog);
             Controls.Add(btnCancel);
@@ -248,5 +261,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.CheckBox chkManageLog;
         private System.Windows.Forms.CheckBox chkManageData;
+        private System.Windows.Forms.CheckBox chkManageWarehouse;
     }
 }

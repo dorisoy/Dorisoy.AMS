@@ -17,6 +17,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Backup\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<!-- 数据库相关 -->
 		<PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.0" />
 		<PackageReference Include="SqlSugarCoreNoDrive" Version="5.1.4.205" />
@@ -125,6 +129,24 @@
 		<Compile Include="View\BorrowRecordsForm.Designer.cs">
 			<DependentUpon>BorrowRecordsForm.cs</DependentUpon>
 		</Compile>
+		<Compile Include="View\WarehouseForm.cs">
+			<SubType>Form</SubType>
+		</Compile>
+		<Compile Include="View\WarehouseForm.Designer.cs">
+			<DependentUpon>WarehouseForm.cs</DependentUpon>
+		</Compile>
+		<Compile Include="View\WarehouseEditForm.cs">
+			<SubType>Form</SubType>
+		</Compile>
+		<Compile Include="View\WarehouseEditForm.Designer.cs">
+			<DependentUpon>WarehouseEditForm.cs</DependentUpon>
+		</Compile>
+		<Compile Include="View\StockRecordsForm.cs">
+			<SubType>Form</SubType>
+		</Compile>
+		<Compile Include="View\StockRecordsForm.Designer.cs">
+			<DependentUpon>StockRecordsForm.cs</DependentUpon>
+		</Compile>
 		<Compile Include="Properties\Resources.Designer.cs">
 			<DesignTime>True</DesignTime>
 			<AutoGen>True</AutoGen>
@@ -140,6 +162,8 @@
 		<Compile Include="Models\Log.cs" />
 		<Compile Include="Models\User.cs" />
 		<Compile Include="Models\global_settings.cs" />
+		<Compile Include="Models\Warehouse.cs" />
+		<Compile Include="Models\StockRecord.cs" />
 		<Compile Include="Services\ExcelService\ExcelExporter.cs" />
 		<Compile Include="Services\ExcelService\ExcelImporter.cs" />
 		<Compile Include="Services\ExcelService\LogExcelExporter.cs" />
@@ -191,6 +215,15 @@
 		</EmbeddedResource>
 		<EmbeddedResource Include="View\BorrowRecordsForm.resx">
 			<DependentUpon>BorrowRecordsForm.cs</DependentUpon>
+		</EmbeddedResource>
+		<EmbeddedResource Include="View\WarehouseForm.resx">
+			<DependentUpon>WarehouseForm.cs</DependentUpon>
+		</EmbeddedResource>
+		<EmbeddedResource Include="View\WarehouseEditForm.resx">
+			<DependentUpon>WarehouseEditForm.cs</DependentUpon>
+		</EmbeddedResource>
+		<EmbeddedResource Include="View\StockRecordsForm.resx">
+			<DependentUpon>StockRecordsForm.cs</DependentUpon>
 		</EmbeddedResource>
 		<EmbeddedResource Include="Properties\Resources.resx">
 			<Generator>ResXFileCodeGenerator</Generator>

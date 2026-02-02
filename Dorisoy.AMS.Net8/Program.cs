@@ -5,12 +5,21 @@ using System.Runtime.InteropServices;
 
 namespace Dorisoy.AMS
 {
-    // 新增全局上下文类1
+    /// <summary>
+    /// 新增全局上下文类
+    /// </summary>
     public static class AppContext
     {
-
+        /// <summary>
+        /// 当前登录用户
+        /// </summary>
         public static User CurrentUser { get; private set; }
 
+        /// <summary>
+        /// 初始化应用程序上下文
+        /// </summary>
+        /// <param name="user"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public static void Initialize(User user)
         {
             CurrentUser = user ?? throw new ArgumentNullException(nameof(user));
@@ -58,13 +67,27 @@ namespace Dorisoy.AMS
                 }
             }
         }
-
+        
+        /// <summary>
+        /// 显示主窗体
+        /// </summary>
+        /// <param name="hWnd"></param>
+        /// <param name="nCmdShow"></param>
+        /// <returns></returns>
         [DllImport("user32.dll")]
         private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
+        /// <summary>
+        /// 显示前窗口
+        /// </summary>
+        /// <param name="hWnd"></param>
+        /// <returns></returns>
         [DllImport("user32.dll")]
         private static extern bool SetForegroundWindow(IntPtr hWnd);
 
+        /// <summary>
+        /// 激活已存在的应用程序实例
+        /// </summary>
         private static void ActivateExistingInstance()
         {
             Process currentProcess = Process.GetCurrentProcess();
@@ -79,6 +102,9 @@ namespace Dorisoy.AMS
             }
         }
 
+        /// <summary>
+        /// 加载本地报表
+        /// </summary>
         private static void LoadFastReportLocalization()
         {
             //C:\Users\Administrator\Downloads\asset-management-net8\Dorisoy.AMSNet8\Chinese (Simplified).frl

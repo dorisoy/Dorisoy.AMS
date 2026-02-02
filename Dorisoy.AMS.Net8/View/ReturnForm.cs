@@ -111,6 +111,14 @@ namespace Dorisoy.AMS.view
 
                         if (result > 0)
                         {
+                            // 生成入库记录
+                            var asset = db.Queryable<Asset>().First(a => a.AssetID == _borrowRecord.AssetID);
+                            if (asset != null)
+                            {
+                                CreateStockInRecord(db, asset, _borrowRecord.BorrowedQuantity, 
+                                    _borrowRecord.BorrowedBy, _borrowRecord.Id.ToString(), txtReturnRemark.Text.Trim());
+                            }
+
                             MessageBox.Show("资产归还成功！", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.DialogResult = DialogResult.OK;
                             this.Close();
@@ -141,6 +149,15 @@ namespace Dorisoy.AMS.view
                         };
 
                         db.Insertable(returnRecord).ExecuteCommand();
+
+                        // 生成入库记录
+                        var asset = db.Queryable<Asset>().First(a => a.AssetID == _borrowRecord.AssetID);
+                        if (asset != null)
+                        {
+                            CreateStockInRecord(db, asset, returnQuantity, 
+                                _borrowRecord.BorrowedBy, _borrowRecord.Id.ToString(), txtReturnRemark.Text.Trim());
+                        }
+
                         MessageBox.Show("部分资产归还成功！余下数量已更新为" + _borrowRecord.BorrowedQuantity + "。", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
@@ -157,6 +174,54 @@ namespace Dorisoy.AMS.view
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        /// <summary>
+        /// 创建归还入库记录
+        /// </summary>
+        private void CreateStockInRecord(SqlSugarClient db, Asset asset, decimal quantity, 
+            string handler, string relatedId, string remark)
+        {
+            try
+            {
+                // 初始化库存记录表
+                if (!db.DbMaintenance.IsAnyTable("StockRecords"))
+                {
+                    db.CodeFirst.InitTables(typeof(StockRecord));
+                }
+
+                // 计算当前可用库存
+                var borrowedQty = db.Queryable<BorrowRecord>()
+                    .Where(r => r.AssetID == asset.AssetID && r.Status == 0)
+                    .Sum(r => r.BorrowedQuantity);
+                var afterQty = asset.Quantity - borrowedQty;
+                var beforeQty = afterQty - quantity; // 归还前的可用库存
+
+                var stockRecord = new StockRecord
+                {
+                    AssetID = asset.AssetID,
+                    AssetName = asset.Name,
+                    WarehouseId = asset.WarehouseId,
+                    WarehouseName = asset.Location,
+                    RecordType = StockRecordType.In,
+                    BusinessType = StockBusinessType.ReturnIn,
+                    Quantity = quantity, // 入库为正数
+                    BeforeQuantity = beforeQty,
+                    AfterQuantity = afterQty,
+                    RelatedId = relatedId,
+                    Operator = AppContext.CurrentUser?.Username ?? "",
+                    Handler = handler,
+                    RecordTime = DateTime.Now,
+                    Remark = $"归还入库: {remark}"
+                };
+
+                db.Insertable(stockRecord).ExecuteCommand();
+            }
+            catch (Exception ex)
+            {
+                // 入库记录失败不影响主流程，只记录日志
+                System.Diagnostics.Debug.WriteLine($"创建入库记录失败：{ex.Message}");
+            }
         }
     }
 }

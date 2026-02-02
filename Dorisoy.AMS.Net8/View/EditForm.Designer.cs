@@ -39,7 +39,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtUnit = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtLocation = new System.Windows.Forms.TextBox();
+            this.cmbLocation = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbUser = new System.Windows.Forms.ComboBox();
             this.numQuantity = new System.Windows.Forms.NumericUpDown();
@@ -147,12 +147,13 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "单位";
             // 
-            // txtLocation
+            // cmbLocation
             // 
-            this.txtLocation.Location = new System.Drawing.Point(87, 212);
-            this.txtLocation.Name = "txtLocation";
-            this.txtLocation.Size = new System.Drawing.Size(172, 21);
-            this.txtLocation.TabIndex = 13;
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(87, 212);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(172, 20);
+            this.cmbLocation.TabIndex = 13;
             // 
             // label8
             // 
@@ -279,7 +280,7 @@
             this.Controls.Add(this.numQuantity);
             this.Controls.Add(this.cmbUser);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtLocation);
+            this.Controls.Add(this.cmbLocation);
             this.Controls.Add(this.txtUnit);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -313,7 +314,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtUnit;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtLocation;
+        private System.Windows.Forms.ComboBox cmbLocation;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbUser;
         private System.Windows.Forms.NumericUpDown numQuantity;

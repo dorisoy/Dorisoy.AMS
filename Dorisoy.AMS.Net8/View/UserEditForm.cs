@@ -37,6 +37,7 @@ namespace Dorisoy.AMS.view
             chkManageNumber.Checked = _user.CanManageNumber;
             chkManageLog.Checked = _user.CanManageLog;
             chkManageData.Checked = _user.CanManageData;
+            chkManageWarehouse.Checked = _user.CanManageWarehouse;
             chkIsAdmin.Checked = _user.IsAdmin;
         }
 
@@ -54,6 +55,7 @@ namespace Dorisoy.AMS.view
             user.CanManageNumber = chkManageNumber.Checked;
             user.CanManageLog = chkManageLog.Checked;
             user.CanManageData = chkManageData.Checked;
+            user.CanManageWarehouse = chkManageWarehouse.Checked;
             user.IsAdmin = chkIsAdmin.Checked;
 
             if (!string.IsNullOrEmpty(txtPassword.Text))

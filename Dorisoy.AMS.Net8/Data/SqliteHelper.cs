@@ -29,7 +29,26 @@ namespace Dorisoy.AMS
                 typeof(AssetRule),
                 typeof(GlobalSetting),
                 typeof(User),
-                typeof(Log));
+                typeof(Log),
+                typeof(Warehouse),
+                typeof(BorrowRecord),
+                typeof(StockRecord));
+
+                // 初始化默认仓库
+                if (!db.Queryable<Warehouse>().Any())
+                {
+                    var defaultWarehouse = new Warehouse
+                    {
+                        Code = "WH001",
+                        Name = "默认仓库",
+                        Address = "默认地址",
+                        Contact = "",
+                        Phone = "",
+                        Status = 0,
+                        CreateTime = DateTime.Now
+                    };
+                    db.Insertable(defaultWarehouse).ExecuteCommand();
+                }
                 //System.Exception:“Asset 创建失败,请认真检查 1、属性需要get set 2、特殊类型需要加Ignore 具体错误内容： Could not load file or assembly 'Microsoft.Data.Sqlite, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'. 系统找不到指定的文件。”
 
 
@@ -79,6 +98,7 @@ namespace Dorisoy.AMS
                         CanManageNumber = true,
                         CanManageLog = true,
                         CanManageData = true,
+                        CanManageWarehouse = true,
                         IsAdmin = true
                     };
                     db.Insertable(defaultUser).ExecuteCommand();

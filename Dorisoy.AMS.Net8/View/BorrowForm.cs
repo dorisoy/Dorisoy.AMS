@@ -127,10 +127,14 @@ namespace Dorisoy.AMS.view
                         Status = 0 // 借用中
                     };
 
-                    var result = db.Insertable(borrowRecord).ExecuteCommand();
+                    var result = db.Insertable(borrowRecord).ExecuteReturnIdentity();
 
                     if (result > 0)
                     {
+                        // 生成出库记录
+                        CreateStockOutRecord(db, _asset, (decimal)numBorrowQuantity.Value, 
+                            cmbBorrowedBy.Text.Trim(), result.ToString(), txtReason.Text.Trim());
+
                         MessageBox.Show("资产借用成功！", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
@@ -151,6 +155,54 @@ namespace Dorisoy.AMS.view
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        /// <summary>
+        /// 创建借用出库记录
+        /// </summary>
+        private void CreateStockOutRecord(SqlSugarClient db, Asset asset, decimal quantity, 
+            string handler, string relatedId, string remark)
+        {
+            try
+            {
+                // 初始化库存记录表
+                if (!db.DbMaintenance.IsAnyTable("StockRecords"))
+                {
+                    db.CodeFirst.InitTables(typeof(StockRecord));
+                }
+
+                // 计算当前可用库存
+                var borrowedQty = db.Queryable<BorrowRecord>()
+                    .Where(r => r.AssetID == asset.AssetID && r.Status == 0)
+                    .Sum(r => r.BorrowedQuantity);
+                var beforeQty = asset.Quantity - borrowedQty + quantity; // 加回刚借的
+                var afterQty = beforeQty - quantity;
+
+                var stockRecord = new StockRecord
+                {
+                    AssetID = asset.AssetID,
+                    AssetName = asset.Name,
+                    WarehouseId = asset.WarehouseId,
+                    WarehouseName = asset.Location,
+                    RecordType = StockRecordType.Out,
+                    BusinessType = StockBusinessType.BorrowOut,
+                    Quantity = -quantity, // 出库为负数
+                    BeforeQuantity = beforeQty,
+                    AfterQuantity = afterQty,
+                    RelatedId = relatedId,
+                    Operator = AppContext.CurrentUser?.Username ?? "",
+                    Handler = handler,
+                    RecordTime = DateTime.Now,
+                    Remark = $"借用出库: {remark}"
+                };
+
+                db.Insertable(stockRecord).ExecuteCommand();
+            }
+            catch (Exception ex)
+            {
+                // 出库记录失败不影响主流程，只记录日志
+                System.Diagnostics.Debug.WriteLine($"创建出库记录失败：{ex.Message}");
+            }
         }
     }
 }

@@ -12,7 +12,8 @@
         public string Model { get; set; } = string.Empty;          // 规格型号
         public decimal Quantity { get; set; }      // 数量
         public string Unit { get; set; } = string.Empty;          // 单位
-        public string Location { get; set; } = string.Empty;      // 存放地点
+        public int WarehouseId { get; set; }                       // 仓库ID（关联仓库表）
+        public string Location { get; set; } = string.Empty;      // 存放地点（仓库名称）
         public string Department { get; set; } = string.Empty;    // 责任部门
         public string User { get; set; } = string.Empty;          // 使用人
         public int Status { get; set; }           // 状态（0正常 1删除 2报废 3转移 4借用）
