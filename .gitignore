@@ -361,3 +361,11 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+Dorisoy.QuestPDF/QuestPDF.UnitTests/
+Dorisoy.QuestPDF/QuestPDF.ZUGFeRD/
+Dorisoy.QuestPDF/QuestPDF.Previewer/
+Dorisoy.QuestPDF/QuestPDF.DocumentationExamples/
+Dorisoy.QuestPDF/QuestPDF.LayoutTests/
+Dorisoy.QuestPDF/QuestPDF.ReportSample/
+Dorisoy.QuestPDF/
+doc.md

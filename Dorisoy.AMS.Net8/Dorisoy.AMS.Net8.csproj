@@ -259,6 +259,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Dorisoy.QuestPDF\QuestPDF\Dorisoy.QuestPDF.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Update="Chinese %28Simplified%29.frl">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>

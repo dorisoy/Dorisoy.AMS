@@ -147,17 +147,66 @@ namespace Dorisoy.AMS.view
                 return;
             }
 
-            btnAdd.Enabled = user.CanAdd;
-            btnEdit.Enabled = user.CanEdit;
-            btnImport.Enabled = user.CanImport;
-            btnPrint.Enabled = user.CanPrint;
-            btnExport.Enabled = user.CanExport;
-            btnManageNumber.Enabled = user.CanManageNumber;
-            btnManageLog.Enabled = user.CanManageLog;
-            btnManageData.Enabled = user.CanManageData;
-            btnWarehouse.Enabled = user.CanManageWarehouse || user.IsAdmin;
-            menuUserManagement.Visible = user.IsAdmin;
+            // 管理员拥有所有权限
+            bool isAdmin = user.IsAdmin;
 
+            // ==================== 基础操作权限 ====================
+            btnAdd.Enabled = isAdmin || user.CanAdd;
+            btnEdit.Enabled = isAdmin || user.CanEdit;
+            btnImport.Enabled = isAdmin || user.CanImport;
+            btnExport.Enabled = isAdmin || user.CanExport;
+            btnPrint.Enabled = isAdmin || user.CanPrint;
+            toolStripButton1.Enabled = isAdmin || user.CanPrint;  // A4打印
+
+            // ==================== 业务功能权限 ====================
+            toolStripButton2.Enabled = isAdmin || user.CanBorrow;  // 借还登记
+            toolStripButton3.Enabled = isAdmin || user.CanViewStockRecords;  // 库存记录
+            btnScrap.Enabled = isAdmin || user.CanScrap;  // 报损登记
+            btnInventoryCheck.Enabled = isAdmin || user.CanInventoryCheck;  // 盘点管理
+            btnStockReport.Enabled = isAdmin || user.CanViewStockReport;  // 库存报表
+
+            // ==================== 系统管理权限 ====================
+            btnManageNumber.Enabled = isAdmin || user.CanManageNumber;  // 编号设置
+            btnManageLog.Enabled = isAdmin || user.CanManageLog;  // 日志管理
+            btnManageData.Enabled = isAdmin || user.CanManageData;  // 数据库管理
+            btnWarehouse.Enabled = isAdmin || user.CanManageWarehouse;  // 仓库管理
+            menuUserManagement.Visible = isAdmin || user.CanManageUsers;  // 用户管理
+
+            // 更新工具栏提示信息
+            UpdateToolbarTooltips(user);
+        }
+
+        /// <summary>
+        /// 更新工具栏按钮提示信息
+        /// </summary>
+        private void UpdateToolbarTooltips(User user)
+        {
+            if (user == null) return;
+
+            // 对于禁用的按钮，显示权限不足的提示
+            SetTooltipForDisabledButton(btnAdd, "添加资产", user.IsAdmin || user.CanAdd);
+            SetTooltipForDisabledButton(btnEdit, "编辑资产", user.IsAdmin || user.CanEdit);
+            SetTooltipForDisabledButton(btnImport, "导入资产", user.IsAdmin || user.CanImport);
+            SetTooltipForDisabledButton(btnExport, "导出资产", user.IsAdmin || user.CanExport);
+            SetTooltipForDisabledButton(btnPrint, "打印标签", user.IsAdmin || user.CanPrint);
+            SetTooltipForDisabledButton(toolStripButton1, "A4打印", user.IsAdmin || user.CanPrint);
+            SetTooltipForDisabledButton(toolStripButton2, "借还登记", user.IsAdmin || user.CanBorrow);
+            SetTooltipForDisabledButton(toolStripButton3, "库存记录", user.IsAdmin || user.CanViewStockRecords);
+            SetTooltipForDisabledButton(btnScrap, "报损登记", user.IsAdmin || user.CanScrap);
+            SetTooltipForDisabledButton(btnInventoryCheck, "盘点管理", user.IsAdmin || user.CanInventoryCheck);
+            SetTooltipForDisabledButton(btnStockReport, "库存报表", user.IsAdmin || user.CanViewStockReport);
+            SetTooltipForDisabledButton(btnManageNumber, "编号设置", user.IsAdmin || user.CanManageNumber);
+            SetTooltipForDisabledButton(btnManageLog, "日志管理", user.IsAdmin || user.CanManageLog);
+            SetTooltipForDisabledButton(btnManageData, "数据库管理", user.IsAdmin || user.CanManageData);
+            SetTooltipForDisabledButton(btnWarehouse, "仓库管理", user.IsAdmin || user.CanManageWarehouse);
+        }
+
+        /// <summary>
+        /// 设置禁用按钮的提示信息
+        /// </summary>
+        private void SetTooltipForDisabledButton(ToolStripButton button, string functionName, bool hasPermission)
+        {
+            button.ToolTipText = hasPermission ? functionName : $"{functionName}（无权限）";
         }
 
         // 添加用户管理菜单项

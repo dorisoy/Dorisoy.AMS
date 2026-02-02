@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dorisoy.AMS", "Dorisoy.AMS\Dorisoy.AMS.csproj", "{41E82AAB-1397-4C28-AF28-BDD80E86B08E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dorisoy.AMS.Rregister", "Dorisoy.AMS.Rregister\Dorisoy.AMS.Rregister.csproj", "{FB016B73-CAA6-4ACE-B87D-3E8D4A8F5713}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dorisoy.AMS.Net8", "Dorisoy.AMS.Net8\Dorisoy.AMS.Net8.csproj", "{749C921C-6E84-244C-ED55-3916655FE3BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dorisoy.QuestPDF", "Dorisoy.QuestPDF\QuestPDF\Dorisoy.QuestPDF.csproj", "{B4BBA32E-0D5B-4426-16CE-986393863453}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{41E82AAB-1397-4C28-AF28-BDD80E86B08E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{41E82AAB-1397-4C28-AF28-BDD80E86B08E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{41E82AAB-1397-4C28-AF28-BDD80E86B08E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{41E82AAB-1397-4C28-AF28-BDD80E86B08E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FB016B73-CAA6-4ACE-B87D-3E8D4A8F5713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FB016B73-CAA6-4ACE-B87D-3E8D4A8F5713}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB016B73-CAA6-4ACE-B87D-3E8D4A8F5713}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{749C921C-6E84-244C-ED55-3916655FE3BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{749C921C-6E84-244C-ED55-3916655FE3BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{749C921C-6E84-244C-ED55-3916655FE3BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4BBA32E-0D5B-4426-16CE-986393863453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4BBA32E-0D5B-4426-16CE-986393863453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4BBA32E-0D5B-4426-16CE-986393863453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4BBA32E-0D5B-4426-16CE-986393863453}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

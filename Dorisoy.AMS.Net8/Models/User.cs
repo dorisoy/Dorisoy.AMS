@@ -16,6 +16,7 @@ namespace Dorisoy.AMS.models
         [DisplayName("密码")]
         public string Password { get; set; } = string.Empty;
 
+        // ==================== 基础操作权限 ====================
         [DisplayName("允许新增")]
         public bool CanAdd { get; set; }
 
@@ -34,7 +35,24 @@ namespace Dorisoy.AMS.models
         [DisplayName("允许导入")]
         public bool CanImport { get; set; }
 
-        [DisplayName("管理编号")]
+        // ==================== 业务功能权限 ====================
+        [DisplayName("借还登记")]
+        public bool CanBorrow { get; set; }
+
+        [DisplayName("库存记录")]
+        public bool CanViewStockRecords { get; set; }
+
+        [DisplayName("报损登记")]
+        public bool CanScrap { get; set; }
+
+        [DisplayName("盘点管理")]
+        public bool CanInventoryCheck { get; set; }
+
+        [DisplayName("库存报表")]
+        public bool CanViewStockReport { get; set; }
+
+        // ==================== 系统管理权限 ====================
+        [DisplayName("编号设置")]
         public bool CanManageNumber { get; set; }
 
         [DisplayName("管理日志")]
@@ -43,8 +61,11 @@ namespace Dorisoy.AMS.models
         [DisplayName("管理数据库")]
         public bool CanManageData { get; set; }
 
-        [DisplayName("管理仓库")]
+        [DisplayName("仓库管理")]
         public bool CanManageWarehouse { get; set; }
+
+        [DisplayName("用户管理")]
+        public bool CanManageUsers { get; set; }
 
         [DisplayName("管理员")]
         public bool IsAdmin { get; set; }
