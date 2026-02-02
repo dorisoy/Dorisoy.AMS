@@ -53,7 +53,9 @@ namespace Dorisoy.AMS.view
             // 
             // panel1
             // 
+            this.btnExportPdf = new System.Windows.Forms.Button();
             this.panel1.Controls.Add(this.lblTotal);
+            this.panel1.Controls.Add(this.btnExportPdf);
             this.panel1.Controls.Add(this.btnExport);
             this.panel1.Controls.Add(this.btnRefresh);
             this.panel1.Controls.Add(this.cmbWarehouse);
@@ -83,6 +85,18 @@ namespace Dorisoy.AMS.view
             this.btnExport.Text = "导出Excel";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnExportPdf
+            // 
+            this.btnExportPdf.Location = new System.Drawing.Point(440, 9);
+            this.btnExportPdf.Name = "btnExportPdf";
+            this.btnExportPdf.Size = new System.Drawing.Size(85, 25);
+            this.btnExportPdf.TabIndex = 5;
+            this.btnExportPdf.Text = "导出PDF";
+            this.btnExportPdf.BackColor = System.Drawing.Color.FromArgb(0, 120, 215);
+            this.btnExportPdf.ForeColor = System.Drawing.Color.White;
+            this.btnExportPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportPdf.Click += new System.EventHandler(this.btnExportPdf_Click);
             // 
             // btnRefresh
             // 
@@ -281,5 +295,6 @@ namespace Dorisoy.AMS.view
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnExportPdf;
     }
 }

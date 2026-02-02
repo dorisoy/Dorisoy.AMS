@@ -188,6 +188,11 @@
 		<Compile Include="Utilities\AssetNumberGenerator.cs" />
 		<Compile Include="Utilities\BackupManager.cs" />
 		<Compile Include="Utilities\LicenseManager.cs" />
+		<!-- QuestPDF 报表 -->
+		<Compile Include="Reports\QuestPDF\ReportBase.cs" />
+		<Compile Include="Reports\QuestPDF\StockReportDocument.cs" />
+		<Compile Include="Reports\QuestPDF\AssetListDocument.cs" />
+		<Compile Include="Reports\QuestPDF\PdfReportService.cs" />
 	</ItemGroup>
 
 	<ItemGroup>

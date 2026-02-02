@@ -1,5 +1,6 @@
 using Dorisoy.AMS;
 using Dorisoy.AMS.models;
+using Dorisoy.AMS.Reports.QuestPDF;
 
 namespace Dorisoy.AMS.view
 {
@@ -240,6 +241,83 @@ namespace Dorisoy.AMS.view
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        /// <summary>
+        /// 导出 PDF 报表
+        /// </summary>
+        private void btnExportPdf_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("没有可导出的数据！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (var sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "PDF文件|*.pdf";
+                var warehouseName = cmbWarehouse.Text;
+                sfd.FileName = $"库存报表_{warehouseName}_{DateTime.Now:yyyyMMdd}.pdf";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // 获取报表数据
+                        var reportData = GetReportData();
+                        
+                        // 生成 PDF
+                        PdfReportService.GenerateStockReport(reportData, warehouseName, sfd.FileName);
+                        
+                        if (MessageBox.Show("PDF导出成功！\n\n是否立即打开文件？", "导出完成", 
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                            {
+                                FileName = sfd.FileName,
+                                UseShellExecute = true
+                            });
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"PDF导出失败：{ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 获取库存报表数据
+        /// </summary>
+        private List<StockReportItem> GetReportData()
+        {
+            var reportData = new List<StockReportItem>();
+            
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow || row.DataBoundItem == null) continue;
+                
+                dynamic item = row.DataBoundItem;
+                reportData.Add(new StockReportItem
+                {
+                    AssetID = item.AssetID ?? "",
+                    Category = item.Category ?? "",
+                    Name = item.Name ?? "",
+                    Model = item.Model ?? "",
+                    Location = item.Location ?? "",
+                    Quantity = Convert.ToDecimal(item.Quantity),
+                    MinQuantity = Convert.ToDecimal(item.MinQuantity),
+                    AvailableQuantity = Convert.ToDecimal(item.AvailableQuantity),
+                    BorrowedQuantity = Convert.ToDecimal(item.BorrowedQuantity),
+                    Unit = item.Unit ?? "",
+                    StatusName = item.StatusName ?? "",
+                    IsWarning = item.IsWarning
+                });
+            }
+            
+            return reportData;
         }
     }
 }
