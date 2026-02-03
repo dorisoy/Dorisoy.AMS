@@ -113,34 +113,38 @@ namespace Dorisoy.AMS.view
                         continue;
                     }
 
-                    // 转换为 Bitmap 用于显示和扫描
-                    var bitmap = frame.ToBitmap();
-
-                    // 在 UI 线程更新图像
-                    picCamera.Invoke(() =>
+                    // 转换为 Bitmap
+                    using (var bitmap = frame.ToBitmap())
                     {
-                        var oldImage = picCamera.Image;
-                        picCamera.Image = bitmap;
-                        oldImage?.Dispose();
-                    });
-
-                    // 尝试识别条码（每100ms识别一次）
-                    if ((DateTime.Now - _lastScanTime).TotalMilliseconds > 100)
-                    {
-                        _lastScanTime = DateTime.Now;
+                        // 创建副本用于 UI 显示（避免线程冲突）
+                        var displayBitmap = new Bitmap(bitmap);
                         
-                        var result = barcodeReader.Decode(bitmap);
-                        if (result != null && !string.IsNullOrEmpty(result.Text))
+                        // 在 UI 线程更新图像
+                        picCamera.Invoke(() =>
                         {
-                            var code = result.Text;
+                            var oldImage = picCamera.Image;
+                            picCamera.Image = displayBitmap;
+                            oldImage?.Dispose();
+                        });
 
-                            // 防止重复扫描同一条码
-                            if (code != _lastScannedCode || (DateTime.Now - _lastScanTime).TotalSeconds > 3)
+                        // 尝试识别条码（每100ms识别一次）
+                        if ((DateTime.Now - _lastScanTime).TotalMilliseconds > 100)
+                        {
+                            _lastScanTime = DateTime.Now;
+                            
+                            var result = barcodeReader.Decode(bitmap);
+                            if (result != null && !string.IsNullOrEmpty(result.Text))
                             {
-                                _lastScannedCode = code;
-                                
-                                // 在 UI 线程处理扫描结果
-                                this.Invoke(() => ProcessScannedCode(code));
+                                var code = result.Text;
+
+                                // 防止重复扫描同一条码
+                                if (code != _lastScannedCode || (DateTime.Now - _lastScanTime).TotalSeconds > 3)
+                                {
+                                    _lastScannedCode = code;
+                                    
+                                    // 在 UI 线程处理扫描结果
+                                    this.Invoke(() => ProcessScannedCode(code));
+                                }
                             }
                         }
                     }

@@ -65,7 +65,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(33, 62);
+            label1.Location = new Point(33, 17);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(56, 17);
@@ -74,8 +74,8 @@
             // 
             // txtAssetID
             // 
-            txtAssetID.Location = new Point(102, 57);
-            txtAssetID.Margin = new Padding(4, 4, 4, 4);
+            txtAssetID.Location = new Point(102, 17);
+            txtAssetID.Margin = new Padding(4);
             txtAssetID.Name = "txtAssetID";
             txtAssetID.ReadOnly = true;
             txtAssetID.Size = new Size(200, 23);
@@ -84,7 +84,7 @@
             // txtCategory
             // 
             txtCategory.Location = new Point(102, 109);
-            txtCategory.Margin = new Padding(4, 4, 4, 4);
+            txtCategory.Margin = new Padding(4);
             txtCategory.Name = "txtCategory";
             txtCategory.Size = new Size(200, 23);
             txtCategory.TabIndex = 3;
@@ -103,7 +103,7 @@
             // txtName
             // 
             txtName.Location = new Point(102, 147);
-            txtName.Margin = new Padding(4, 4, 4, 4);
+            txtName.Margin = new Padding(4);
             txtName.Name = "txtName";
             txtName.Size = new Size(200, 23);
             txtName.TabIndex = 5;
@@ -121,7 +121,7 @@
             // txtModel
             // 
             txtModel.Location = new Point(102, 186);
-            txtModel.Margin = new Padding(4, 4, 4, 4);
+            txtModel.Margin = new Padding(4);
             txtModel.Name = "txtModel";
             txtModel.Size = new Size(200, 23);
             txtModel.TabIndex = 7;
@@ -149,7 +149,7 @@
             // txtUnit
             // 
             txtUnit.Location = new Point(102, 300);
-            txtUnit.Margin = new Padding(4, 4, 4, 4);
+            txtUnit.Margin = new Padding(4);
             txtUnit.Name = "txtUnit";
             txtUnit.Size = new Size(200, 23);
             txtUnit.TabIndex = 11;
@@ -169,7 +169,7 @@
             // 
             cmbLocation.FormattingEnabled = true;
             cmbLocation.Location = new Point(102, 339);
-            cmbLocation.Margin = new Padding(4, 4, 4, 4);
+            cmbLocation.Margin = new Padding(4);
             cmbLocation.Name = "cmbLocation";
             cmbLocation.Size = new Size(200, 25);
             cmbLocation.TabIndex = 13;
@@ -188,7 +188,7 @@
             // 
             cmbUser.FormattingEnabled = true;
             cmbUser.Location = new Point(102, 415);
-            cmbUser.Margin = new Padding(4, 4, 4, 4);
+            cmbUser.Margin = new Padding(4);
             cmbUser.Name = "cmbUser";
             cmbUser.Size = new Size(200, 25);
             cmbUser.TabIndex = 17;
@@ -196,7 +196,7 @@
             // numQuantity
             // 
             numQuantity.Location = new Point(102, 227);
-            numQuantity.Margin = new Padding(4, 4, 4, 4);
+            numQuantity.Margin = new Padding(4);
             numQuantity.Name = "numQuantity";
             numQuantity.Size = new Size(201, 23);
             numQuantity.TabIndex = 18;
@@ -215,7 +215,7 @@
             // numMinQuantity
             // 
             numMinQuantity.Location = new Point(102, 262);
-            numMinQuantity.Margin = new Padding(4, 4, 4, 4);
+            numMinQuantity.Margin = new Padding(4);
             numMinQuantity.Name = "numMinQuantity";
             numMinQuantity.Size = new Size(201, 23);
             numMinQuantity.TabIndex = 30;
@@ -243,7 +243,7 @@
             // txtRemark
             // 
             txtRemark.Location = new Point(102, 456);
-            txtRemark.Margin = new Padding(4, 4, 4, 4);
+            txtRemark.Margin = new Padding(4);
             txtRemark.Name = "txtRemark";
             txtRemark.Size = new Size(200, 23);
             txtRemark.TabIndex = 23;
@@ -261,7 +261,7 @@
             // btnSave
             // 
             btnSave.Location = new Point(83, 565);
-            btnSave.Margin = new Padding(4, 4, 4, 4);
+            btnSave.Margin = new Padding(4);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(88, 33);
             btnSave.TabIndex = 24;
@@ -272,7 +272,7 @@
             // btnCancel
             // 
             btnCancel.Location = new Point(198, 565);
-            btnCancel.Margin = new Padding(4, 4, 4, 4);
+            btnCancel.Margin = new Padding(4);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(88, 33);
             btnCancel.TabIndex = 25;
@@ -284,7 +284,7 @@
             // 
             cmbDepartment.FormattingEnabled = true;
             cmbDepartment.Location = new Point(103, 378);
-            cmbDepartment.Margin = new Padding(4, 4, 4, 4);
+            cmbDepartment.Margin = new Padding(4);
             cmbDepartment.Name = "cmbDepartment";
             cmbDepartment.Size = new Size(199, 25);
             cmbDepartment.TabIndex = 26;
@@ -303,7 +303,7 @@
             // 
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Location = new Point(103, 494);
-            cmbStatus.Margin = new Padding(4, 4, 4, 4);
+            cmbStatus.Margin = new Padding(4);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(199, 25);
             cmbStatus.TabIndex = 28;
@@ -312,9 +312,9 @@
             // 
             grpBarcode.Controls.Add(picBarcode);
             grpBarcode.Location = new Point(327, 17);
-            grpBarcode.Margin = new Padding(4, 4, 4, 4);
+            grpBarcode.Margin = new Padding(4);
             grpBarcode.Name = "grpBarcode";
-            grpBarcode.Padding = new Padding(4, 4, 4, 4);
+            grpBarcode.Padding = new Padding(4);
             grpBarcode.Size = new Size(368, 101);
             grpBarcode.TabIndex = 31;
             grpBarcode.TabStop = false;
@@ -323,11 +323,10 @@
             // picBarcode
             // 
             picBarcode.BackColor = Color.White;
-            picBarcode.Dock = DockStyle.Fill;
-            picBarcode.Location = new Point(4, 20);
-            picBarcode.Margin = new Padding(4, 4, 4, 4);
+            picBarcode.Location = new Point(8, 24);
+            picBarcode.Margin = new Padding(4);
             picBarcode.Name = "picBarcode";
-            picBarcode.Size = new Size(360, 77);
+            picBarcode.Size = new Size(352, 69);
             picBarcode.SizeMode = PictureBoxSizeMode.Zoom;
             picBarcode.TabIndex = 0;
             picBarcode.TabStop = false;
@@ -364,7 +363,7 @@
             Controls.Add(label2);
             Controls.Add(txtAssetID);
             Controls.Add(label1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "EditForm";
             Text = "EditForm";
