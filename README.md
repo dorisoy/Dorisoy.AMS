@@ -196,17 +196,18 @@ Dorisoy.AMS是一款专业的企业/机构资产管理解决方案。该系统�
 
 ## 界面功能
 
-| 功能模块 | 功能说明 | 预览图 |
-|--------|--------|--------|
-| 主界面 | 资产列表、快速查询、基本操作 | ![主界面](images/02.png) |
-| 添加资产 | 新增资产信息表单 | ![添加资产](images/03.png) |
-| 打印标签 | 条码/二维码标签打印 | ![打印标签](images/04.png) |
-| 打印A4 | A4纸张资产清单打印 | ![打印A4](images/05.png) |
-| 编码规则设置 | 自定义资产编号生成规则 | ![编码设置](images/06.png) |
-| 用户管理 | 系统用户和权限管理 | ![用户管理](images/07.png) |
-| 日志管理 | 操作日志查询和导出 | ![日志管理](images/08.png) |
-| 数据备份恢复 | 数据库备份和恢复功能 | ![数据库管理](images/09.png) |
-
+<img src="Screen/ams%20(1).png"/>
+<img src="Screen/ams%20(2).png"/>
+<img src="Screen/ams%20(3).png"/>
+<img src="Screen/ams%20(4).png"/>
+<img src="Screen/ams%20(5).png"/>
+<img src="Screen/ams%20(6).png"/>
+<img src="Screen/ams%20(7).png"/>
+<img src="Screen/ams%20(8).png"/>
+<img src="Screen/ams%20(9).png"/>
+<img src="Screen/ams%20(10).png"/>
+<img src="Screen/ams%20(11).png"/>
+<img src="Screen/ams%20(12).png"/>
 
 ## 技术栈
 
